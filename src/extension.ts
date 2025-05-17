@@ -1,35 +1,61 @@
 import * as vscode from 'vscode';
+import * as fs from 'fs';
+import * as path from 'path';
+import { exec } from 'child_process';
 
-// Command 1: Refactor with formal verification
-async function refactorWithVerification() {
-	vscode.window.showInformationMessage('🔍 Refactor with verification triggered!');
-	// Future: Add Ollama logic here
-}
-
-// Command 2: Cross-file code change
-async function crossFileChange() {
-	vscode.window.showInformationMessage('📂 Cross-file change triggered!');
-	// Future: Add multi-file edit logic here
-}
-
-// Extension activation
 export function activate(context: vscode.ExtensionContext) {
-	console.log('Congratulations, your extension "forge" is now active!');
+	const disposable = vscode.commands.registerCommand('forge.refactorSelection', async () => {
+		const editor = vscode.window.activeTextEditor;
+		if (!editor) {
+			vscode.window.showInformationMessage('No active editor.');
+			return;
+		}
 
-	// Original Hello World command
-	const helloDisposable = vscode.commands.registerCommand('forge.helloWorld', () => {
-		vscode.window.showInformationMessage('Hello World from FORGE!');
+		const selection = editor.selection;
+		const selectedText = editor.document.getText(selection);
+		if (!selectedText.trim()) {
+			vscode.window.showInformationMessage('Please highlight a code snippet to refactor.');
+			return;
+		}
+
+		const workspaceFolder = vscode.workspace.workspaceFolders?.[0];
+		if (!workspaceFolder) {
+			vscode.window.showErrorMessage('Workspace not found.');
+			return;
+		}
+
+		const workspacePath = workspaceFolder.uri.fsPath;
+		const seedPath = path.join(workspacePath, 'test-project', 'snippet_input.py');
+		const scriptPath = path.join(context.extensionPath, 'refactor_snippet_workspace.py');
+
+		// Write highlighted code to snippet file
+		fs.mkdirSync(path.dirname(seedPath), { recursive: true });
+		fs.writeFileSync(seedPath, selectedText);
+
+		const command = `python3 "${scriptPath}" "${seedPath}" "${workspacePath}"`;
+		vscode.window.showInformationMessage('🔧 Refactoring with LLaMA...');
+
+		exec(command, (err, stdout, stderr) => {
+			if (err) {
+				vscode.window.showErrorMessage(`❌ Refactor failed: ${stderr}`);
+				return;
+			}
+
+			fs.readFile(seedPath, 'utf8', (err, data) => {
+				if (err) {
+					vscode.window.showErrorMessage('❌ Failed to read refactored snippet.');
+					return;
+				}
+				editor.edit(editBuilder => {
+					editBuilder.replace(selection, data);
+				});
+				vscode.window.showInformationMessage('✅ Snippet refactored and applied.');
+				console.log(stdout);
+			});
+		});
 	});
-	// New command: Refactor with verification
-	const refactorDisposable = vscode.commands.registerCommand('forge.refactorWithVerification', refactorWithVerification);
 
-	// New command: Multi-file code change
-	const crossFileDisposable = vscode.commands.registerCommand('forge.crossFileChange', crossFileChange);
-
-	// Register all commands
-	context.subscriptions.push(helloDisposable, refactorDisposable, crossFileDisposable);
+	context.subscriptions.push(disposable);
 }
 
-// Extension deactivation
 export function deactivate() {}
-	

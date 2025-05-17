@@ -1,16 +1,16 @@
+# refactor_snippet_workspace.py
+
 import os
 import re
 import requests
 import difflib
+import sys
 from pathlib import Path
 
 # Configuration
-TARGET_DIR = 'test-project'
-SEED_FILENAME = 'snippet_input.py'
-SEED_PATH = os.path.join(TARGET_DIR, SEED_FILENAME)
 EXTENSIONS = {'.py'}
-OLLAMA_URL = 'http://localhost:11434/api/generate'
 MODEL_NAME = 'llama3'
+OLLAMA_URL = 'http://localhost:11434/api/generate'
 
 
 def call_llama(prompt: str) -> str:
@@ -19,13 +19,8 @@ def call_llama(prompt: str) -> str:
         "prompt": prompt,
         "stream": False
     }
-    try:
-        res = requests.post(OLLAMA_URL, json=payload)
-        res.raise_for_status()
-        return res.json()["response"].strip()
-    except Exception as e:
-        print(f"❌ Error calling LLaMA: {e}")
-        return ""
+    res = requests.post(OLLAMA_URL, json=payload)
+    return res.json()["response"].strip()
 
 
 def strip_fences(text: str) -> str:
@@ -85,14 +80,12 @@ def find_function_usage_blocks(code: str, func_name: str, context_window: int = 
     lines = code.splitlines()
     pattern = re.compile(rf'\b{func_name}\s*\(.*?\)')
     blocks = []
-
     for i, line in enumerate(lines):
         if pattern.search(line):
             start = max(i - context_window, 0)
             end = min(i + context_window + 1, len(lines))
             snippet = "\n".join(lines[start:end]).strip()
             blocks.append((snippet, start, end))
-
     return blocks
 
 
@@ -114,29 +107,27 @@ def print_diff(old: str, new: str, filename: str):
     print("\n".join(diff))
 
 
-def process_files(func_name: str, seed_before: str, seed_after: str):
+def process_files(func_name: str, seed_before: str, seed_after: str, workspace_root: str, seed_path: str):
     changed_files = 0
-    for root, _, files in os.walk(TARGET_DIR):
+    for root, _, files in os.walk(workspace_root):
         for file in files:
             if Path(file).suffix not in EXTENSIONS:
                 continue
 
-            path = os.path.join(root, file)
-            with open(path, 'r') as f:
+            full_path = os.path.join(root, file)
+            with open(full_path, 'r') as f:
                 content = f.read()
 
-            if file == SEED_FILENAME:
-                # Overwrite the seed file
-                print(f"\n Overwriting seed file: {SEED_FILENAME}")
+            if os.path.abspath(full_path) == os.path.abspath(seed_path):
+                print(f"\n💾 Overwriting seed file: {file}")
                 print_diff(content, seed_after, file)
-                with open(path, 'w') as f:
+                with open(full_path, 'w') as f:
                     f.write(seed_after)
                 changed_files += 1
                 continue
 
             blocks_with_pos = find_function_usage_blocks(content, func_name)
             if not blocks_with_pos:
-                print(f" {file}: No calls to `{func_name}` found.")
                 continue
 
             new_blocks = []
@@ -150,13 +141,12 @@ def process_files(func_name: str, seed_before: str, seed_after: str):
                     new_blocks.append(refactored)
                     positions.append((start, end))
                 else:
-                    print(f"⚠️  Block unchanged in {file}.\n")
                     new_blocks.append(block)
                     positions.append((start, end))
 
             new_content = replace_blocks(content, new_blocks, positions)
             if new_content != content:
-                with open(path, 'w') as f:
+                with open(full_path, 'w') as f:
                     f.write(new_content)
                 changed_files += 1
 
@@ -164,39 +154,32 @@ def process_files(func_name: str, seed_before: str, seed_after: str):
 
 
 def main():
-    if not os.path.exists(SEED_PATH):
-        print(f"❌ Seed file not found: {SEED_PATH}")
+    if len(sys.argv) < 3:
+        print("Usage: python refactor_snippet_workspace.py <seed_path> <workspace_path>")
         return
 
-    with open(SEED_PATH, 'r') as f:
+    seed_path = sys.argv[1]
+    workspace = sys.argv[2]
+
+    with open(seed_path, 'r') as f:
         seed_before = f.read().strip()
 
-    if not seed_before:
-        print("❌ Seed snippet is empty.")
-        return
-
-    print("📤 Sending seed snippet to LLaMA 4...")
+    print("📤 Sending seed snippet to LLaMA...")
     seed_after = refactor_seed(seed_before)
 
-    if not seed_after:
+    if not seed_after.strip():
         print("❌ Refactor failed.")
         return
 
-    print("✅ Refactor received. Showing diff with original seed...")
-    print_diff(seed_before, seed_after, SEED_FILENAME)
-
-    # Overwrite the seed file
-    with open(SEED_PATH, 'w') as f:
-        f.write(seed_after)
-    print(f"💾 Overwrote {SEED_FILENAME} with refactored version.\n")
+    print("✅ Refactor received:")
+    print_diff(seed_before, seed_after, Path(seed_path).name)
 
     func_name = extract_function_name(seed_before)
     if not func_name:
-        print("❌ Could not determine function name.")
+        print("❌ Could not extract function name.")
         return
 
-    print(f"🔍 Searching for usages of `{func_name}` in files...\n")
-    process_files(func_name, seed_before, seed_after)
+    process_files(func_name, seed_before, seed_after, workspace, seed_path)
 
 
 if __name__ == "__main__":

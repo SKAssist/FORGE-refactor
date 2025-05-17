@@ -1,8 +1,9 @@
-raw_data = ["  Hello", None, "ERROR 404", "World", 123, "", "test"]
-
-# Pre-cleaning step before transformation
-result = handle_data(raw_data)
-print("Final Output:")
-    print(result)
-else:
-    print("No data to process.")
+raw_sessions = [
+    {'user': 'Alice', 'duration': 30},
+    {'user': 'Bob', 'duration': 0},
+    {'user': 'Charlie', 'duration': 45},
+    None,
+    {'user': 'Dana'}  # missing duration
+]
+summary = analyze_sessions(raw_sessions, log=True)
+print("Summary Length:", len(summary))

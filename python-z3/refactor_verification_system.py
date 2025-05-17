@@ -588,17 +588,18 @@ class RefactoringEngine:
     def __init__(self, llm_config: Optional[LLMConfig] = None):
         self.llm = LLMInterface(llm_config) if llm_config else None
     
-    def generate_refactored_code(self, original_code: str, 
-                                refactoring_strategy: str = "optimize_for_readability") -> str:
-        """Generate refactored version of the code using LLM"""
-        if not self.llm:
-            raise ValueError("LLM not configured. Please provide LLM configuration.")
+    def generate_refactored_code(self, original_code: str, refactoring_strategy: str = "optimize_for_readability") -> str:
+        """Generate refactored version of the code using Llama"""
         
-        # Analyze the original code to extract relevant information
-        func_name, params, return_type = ASTAnalyzer.extract_function_signature(original_code)
-        complexity_metrics = ASTAnalyzer.analyze_code_complexity(original_code)
+        # Extract function information
+        try:
+            func_name, params, return_type = ASTAnalyzer.extract_function_signature(original_code)
+            complexity_metrics = ASTAnalyzer.analyze_code_complexity(original_code)
+        except Exception as e:
+            print(f"Error analyzing code: {e}")
+            complexity_metrics = {"cyclomatic_complexity": "unknown", "num_operations": "unknown", "max_nesting_depth": "unknown"}
         
-        # Build a detailed prompt for the LLM
+        # Build prompt for the LLM
         prompt = f"""
         Refactor the following Python function using the strategy: {refactoring_strategy}
         
@@ -607,32 +608,29 @@ class RefactoringEngine:
         {original_code}
         ```
         
-        Function complexity metrics:
-        - Cyclomatic complexity: {complexity_metrics["cyclomatic_complexity"]}
-        - Number of operations: {complexity_metrics["num_operations"]}
-        - Maximum nesting depth: {complexity_metrics["max_nesting_depth"]}
-        
         I need you to refactor this function while preserving its exact behavior.
         The refactored function should:
         1. Have the same input-output behavior for all valid inputs
         2. Have improved {refactoring_strategy} characteristics
         3. Be functionally equivalent to the original
-        
         Improve clarity, efficiency, and maintainability:
-            - Remove redundancy
-            - Simplify logic
-            - Decompose complex logic into helpers
-            - Improve naming
-            - Ensure functionality is preserved
+        - Remove redundancy
+        - Simplify logic
+        - Simplify code
+        - Decompose complex logic into helpers
+        - Improve naming
+        - Ensure functionality is preserved
+        - DO NOT use complex Python constructs like list comprehensions, generator expressions, or built-in functions like any(), all(), map(), filter(), etc.
         Return only the Python code for the refactored function without any explanation.
         """
         
-        refactored_code = self.llm.generate_code(prompt)
+        refactored_code = query_llama3(prompt)
         
         # Clean up the code to remove any markdown code blocks
-        refactored_code = re.sub(r'```python|```', '', refactored_code).strip()
-        
+        refactored_code = extract_code_block(refactored_code)
+    
         return refactored_code
+    
     
     def generate_verification_constraints(self, original_code: str, refactored_code: str) -> List[str]:
         """Generate additional verification constraints using LLM"""
@@ -692,58 +690,56 @@ class RefactoringEngine:
             refactored_func = get_function_from_code(refactored_code, refactored_func_name)
             
             # Z3 verification
-            translator1 = PythonToZ3Translator()
-            translator2 = PythonToZ3Translator()
-            
-            # Create shared symbolic variables
-            shared_vars = {}
-            for param in original_params:
-                shared_vars[param] = Int(param)
-            
-            # Create parameter mapping between original and refactored
-            param_mapping = {}
-            if len(original_params) == len(refactored_params):
-                param_mapping = dict(zip(refactored_params, [shared_vars[p] for p in original_params]))
-            
-            # Translate functions to Z3 expressions
-            expr1 = translator1.translate(original_code, shared_vars)
-            expr2 = translator2.translate(refactored_code, param_mapping)
-            
-            # Verify with Z3
-            z3_result = Z3Verifier.verify_equivalence(expr1, expr2)
-            results["z3_verification"] = z3_result
-            
-            # Generate additional constraints if LLM is available
-            constraints = []
-            if self.llm:
-                constraint_texts = self.generate_verification_constraints(original_code, refactored_code)
-                if constraint_texts:
-                    print("Generated constraints:")
-                    for c in constraint_texts:
-                        print(f"- {c}")
+            try:
+                translator1 = PythonToZ3Translator()
+                translator2 = PythonToZ3Translator()
+                
+                # Create shared symbolic variables
+                shared_vars = {}
+                for param in original_params:
+                    shared_vars[param] = Int(param)
+                
+                # Create parameter mapping between original and refactored
+                param_mapping = {}
+                if len(original_params) == len(refactored_params):
+                    param_mapping = dict(zip(refactored_params, [shared_vars[p] for p in original_params]))
+                
+                # Translate functions to Z3 expressions
+                expr1 = translator1.translate(original_code, shared_vars)
+                expr2 = translator2.translate(refactored_code, param_mapping)
+                
+                # Verify with Z3
+                z3_result = Z3Verifier.verify_equivalence(expr1, expr2)
+                results["z3_verification"] = z3_result
+            except Exception as e:
+                print(f"Z3 verification error: {e}")
+                results["z3_verification"] = {"error": str(e)}
             
             # CrossHair verification
-            property_func = CrossHairVerifier.generate_property_function(
-                original_func, 
-                refactored_func,
-                original_params
-            )
+            try:
+                property_func = CrossHairVerifier.generate_property_function(
+                    original_func, 
+                    refactored_func,
+                    original_params
+                )
+                
+                crosshair_results = CrossHairVerifier.analyze_with_crosshair(property_func)
+                results["crosshair_verification"] = crosshair_results
+            except Exception as e:
+                print(f"CrossHair verification error: {e}")
+                results["crosshair_verification"] = {"error": str(e)}
             
-            crosshair_results = CrossHairVerifier.analyze_with_crosshair(property_func)
-            results["crosshair_verification"] = crosshair_results
+            # Determine overall equivalence based on available results
+            z3_equivalent = results["z3_verification"].get("equivalent", False) if isinstance(results["z3_verification"], dict) else False
+            crosshair_failed = len(results["crosshair_verification"]) > 0 if isinstance(results["crosshair_verification"], list) else True
             
-            # Determine overall equivalence
-            results["equivalent"] = (
-                z3_result["equivalent"] and 
-                len(crosshair_results) == 0
-            )
+            results["equivalent"] = z3_equivalent and not crosshair_failed
             
         except Exception as e:
             results["error"] = str(e)
             traceback.print_exc()
             
         return results
-    
     def refactor_with_feedback_loop(self, original_code: str, 
                                   refactoring_strategy: str = "optimize_for_readability",
                                   max_iterations: int = 3) -> Dict:
@@ -839,10 +835,21 @@ def get_function_from_code(code: str, func_name: str):
 
 def extract_code_block(text: str) -> str:
     """Extract code from markdown-style code blocks"""
+    # First try to find a standard markdown code block
+    print("cleaning code")
     pattern = r'```(?:python)?\s*(.*?)\s*```'
     match = re.search(pattern, text, re.DOTALL)
     if match:
         return match.group(1).strip()
+    
+    # If no standard code block found, try to handle the case where
+    # only opening ``` exists without closing ```
+    pattern = r'```(?:python)?\s*(.*?)$'
+    match = re.search(pattern, text, re.DOTALL)
+    if match:
+        return match.group(1).strip()
+    
+    # If no opening markers found at all, just strip and return the text
     return text.strip()
 
 # ===============================================

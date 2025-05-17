@@ -1,13 +1,16 @@
-def log_items(items):
-    for item in items:
-        print("Item:", item)
+from datetime import datetime
 
-def run():
-records = ["apple", "", None, "berry", "ERROR_LOG", "fig"]
-cleaned = handle_data(records)
-    if len(cleaned) >= 2:
-        log_items(cleaned)
-    else:
-        print("⚠️ Not enough data to log.")
+def log_results(records):
+    print(f"--- LOG [{datetime.now()}] ---")
+    for u, d in records:
+        print(f"{u} used the app for {d} minutes.")
 
-run()
+inputs = [
+    {'user': 'Ivan', 'duration': 15},
+    {'user': 'Jade', 'duration': 20},
+    {'duration': 10}
+]
+res = analyze_sessions(inputs)
+    log_results(res)
+else:
+    print("No valid sessions found.")
