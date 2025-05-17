@@ -1,26 +1,36 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
+// Command 1: Refactor with formal verification
+async function refactorWithVerification() {
+	vscode.window.showInformationMessage('🔍 Refactor with verification triggered!');
+	// Future: Add Ollama logic here
+}
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
+// Command 2: Cross-file code change
+async function crossFileChange() {
+	vscode.window.showInformationMessage('📂 Cross-file change triggered!');
+	// Future: Add multi-file edit logic here
+}
+
+// Extension activation
+export function activate(context: vscode.ExtensionContext) {
 	console.log('Congratulations, your extension "forge" is now active!');
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('forge.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
+	// Original Hello World command
+	const helloDisposable = vscode.commands.registerCommand('forge.helloWorld', () => {
 		vscode.window.showInformationMessage('Hello World from FORGE!');
 	});
 
-	context.subscriptions.push(disposable);
+	// New command: Refactor with verification
+	const refactorDisposable = vscode.commands.registerCommand('forge.refactorWithVerification', refactorWithVerification);
+
+	// New command: Multi-file code change
+	const crossFileDisposable = vscode.commands.registerCommand('forge.crossFileChange', crossFileChange);
+
+	// Register all commands
+	context.subscriptions.push(helloDisposable, refactorDisposable, crossFileDisposable);
 }
 
-// This method is called when your extension is deactivated
+// Extension deactivation
 export function deactivate() {}
+	
