@@ -15,5 +15,8 @@
         "title": "FORGE: Apply Multi-file Code Change"
       }
     ]
+  },
+  "engines": {
+    "vscode": "^1.80.0"
   }
 }
