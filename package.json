@@ -1,16 +1,11 @@
 {
   "activationEvents": [
-    "onCommand:forge.runRefactor",
     "onCommand:forge.refactorWithVerification",
     "onCommand:forge.crossFileChange",
-    "onCommand:forge.helloWorld"
   ],
   "contributes": {
     "commands": [
-      {
-        "command": "forge.runRefactor",
-        "title": "FORGE: Run Refactor Plan"
-      },
+      
       {
         "command": "forge.refactorWithVerification",
         "title": "FORGE: Refactor with Formal Verification"
@@ -18,10 +13,6 @@
       {
         "command": "forge.crossFileChange",
         "title": "FORGE: Apply Multi-file Code Change"
-      },
-      {
-        "command": "forge.helloWorld",
-        "title": "Hello World from FORGE"
       }
     ]
   }
