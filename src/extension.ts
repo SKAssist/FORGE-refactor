@@ -20,7 +20,6 @@ export function activate(context: vscode.ExtensionContext) {
 	const helloDisposable = vscode.commands.registerCommand('forge.helloWorld', () => {
 		vscode.window.showInformationMessage('Hello World from FORGE!');
 	});
-
 	// New command: Refactor with verification
 	const refactorDisposable = vscode.commands.registerCommand('forge.refactorWithVerification', refactorWithVerification);
 
