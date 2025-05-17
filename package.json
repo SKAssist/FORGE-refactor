@@ -1,21 +1,25 @@
 {
   "name": "forge",
   "displayName": "FORGE",
-  "description": "refactoring assistant",
+  "description": "FORGE: Formalized Optimized Refactoring Guided by Explainable AI",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.100.0"
   },
   "categories": [
-    "Other"
+    "Programming Languages",
+    "Refactoring",
+    "AI Tools"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:forge.runRefactor"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "forge.helloWorld",
-        "title": "Hello World"
+        "command": "forge.runRefactor",
+        "title": "FORGE: Run Refactor Plan"
       }
     ]
   },
