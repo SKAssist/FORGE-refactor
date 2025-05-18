@@ -31,3 +31,30 @@ Or install via the command line:
 
 ```bash
 code --install-extension FORGE.forge-refactor
+
+
+FORGE uses three complementary verification methods to ensure code equivalence:
+
+Z3 Theorem Proving
+Mathematical proof that both implementations produce identical outputs for all possible inputs.
+
+Runtime Testing
+Dynamic testing with intelligently generated inputs covering edge cases and common usage patterns.
+
+CrossHair Property-Based Testing
+Symbolic execution to find potential inputs that would cause different behavior.
+
+🧠 How It Works
+FORGE follows a sophisticated pipeline to ensure high-quality, verified refactoring:
+
+Original code is parsed into an Abstract Syntax Tree
+
+LLM (Llama 3) generates refactored code based on analyzed structure
+
+Verification engine applies multiple methods to check equivalence
+
+If verification fails, LLM receives feedback to improve the refactoring
+
+Process repeats until verified equivalent or max iterations reached
+
+
