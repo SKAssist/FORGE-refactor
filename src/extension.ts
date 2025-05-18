@@ -2,8 +2,11 @@ import * as vscode from 'vscode';
 import { exec } from 'child_process';
 import * as fs from 'fs';
 import * as path from 'path';
+import * as os from 'os';
 
 export function activate(context: vscode.ExtensionContext) {
+  const outputChannel = vscode.window.createOutputChannel('LLaMA Refactor');
+
   const disposable = vscode.commands.registerCommand(
     'llamaRefactor.refactorSelection',
     async () => {
@@ -21,27 +24,46 @@ export function activate(context: vscode.ExtensionContext) {
 
       const documentPath = editor.document.uri.fsPath;
       const targetDir = path.dirname(documentPath);
-      const scriptPath = '/home/ubuntu/FORGE-refactor/test_changes/test_cross_file_llama4_refactor.py';
+      const tempSeedPath = path.join(os.tmpdir(), 'snippet_input.py');
+      const scriptPath = '/home/ubuntu/FORGE-refactor/test_changes/test_simple';
 
       try {
-        // Overwrite the file with the selected snippet
-        fs.writeFileSync(documentPath, selection);
-        await editor.document.save();
+        // 🧠 Write selection to temp seed file
+        fs.writeFileSync(tempSeedPath, selection);
+        vscode.window.showInformationMessage('📤 Sending seed snippet to LLaMA...');
+        outputChannel.appendLine(`[info] Seed snippet written to ${tempSeedPath}`);
+        outputChannel.appendLine(`[info] Target directory: ${targetDir}`);
 
-        // Call the Python script with both the seed file and target directory
-        exec(`python3 "${scriptPath}" "${documentPath}" "${targetDir}"`, (error, stdout, stderr) => {
+        // 🚀 Execute refactor script
+        exec(`python3 "${scriptPath}" "${tempSeedPath}" "${targetDir}"`, (error, stdout, stderr) => {
           if (error) {
-            vscode.window.showErrorMessage(`❌ Error: ${(error as Error).message}`);
-            console.error(stderr);
+            vscode.window.showErrorMessage(`❌ Error during LLaMA refactor.`);
+            outputChannel.appendLine(`[error] ${error.message}`);
+            if (stderr) outputChannel.appendLine(`[stderr] ${stderr}`);
+            outputChannel.show(true);
             return;
           }
 
-          vscode.window.showInformationMessage('✅ LLaMA refactor complete.');
-          console.log(stdout);
-          if (stderr) console.error(stderr);
+          // 🧾 Notify success and log output
+          vscode.window.showInformationMessage('✅ LLaMA refactor complete!');
+          outputChannel.appendLine(`[success] Refactor complete.\n--- stdout ---\n${stdout}`);
+          if (stderr.trim()) {
+            vscode.window.showWarningMessage('⚠️ LLaMA completed with warnings.');
+            outputChannel.appendLine(`[warning] stderr:\n${stderr}`);
+          }
+
+          // ✅ Show output panel with all logs
+          outputChannel.show(true);
+
+          // 🔍 Additional visual guidance
+          vscode.window.showInformationMessage('📂 Check the Output panel for file-by-file logs.');
         });
+
+        vscode.window.showInformationMessage('⚙️ Refactor process started...');
       } catch (err) {
-        vscode.window.showErrorMessage(`❌ Failed to process selection: ${(err as Error).message}`);
+        vscode.window.showErrorMessage(`❌ Failed to prepare refactor: ${(err as Error).message}`);
+        outputChannel.appendLine(`[crash] ${err}`);
+        outputChannel.show(true);
       }
     }
   );

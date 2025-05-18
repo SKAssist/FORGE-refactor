@@ -1,6 +1,6 @@
+# test_simple.py
 import os
 import re
-import sys
 import requests
 import difflib
 from pathlib import Path
@@ -8,32 +8,17 @@ from refactor_verification import (
     CrossHairVerifier, Z3Verifier, PythonToZ3Translator,
     ASTAnalyzer, extract_code_block, get_function_from_code, RefactoringEngine
 )
-
-
-# Configuration
-TARGET_DIR = 'test-project'
-SEED_FILENAME = 'dummy_prime.py'
-SEED_PATH = os.path.join(TARGET_DIR, SEED_FILENAME)
-EXTENSIONS = {'.py'}
-OLLAMA_URL = 'http://localhost:11434/api/generate'
-MODEL_NAME = 'llama3'
-
 from mistralai import Mistral
 
+# Mistral setup
 api_key = "shZl9BS91mQ08w7NX4FpGlifFyiMH5fj"
 model = "mistral-large-latest"
-
 client = Mistral(api_key=api_key)
 
 def call_mistral(prompt):
     chat_response = client.chat.complete(
-        model= model,
-        messages = [
-            {
-                "role": "user",
-                "content": prompt,
-            },
-        ]
+        model=model,
+        messages=[{"role": "user", "content": prompt}],
     )
     return chat_response.choices[0].message.content
 
@@ -51,14 +36,8 @@ def call_llama(prompt: str) -> str:
         print(f"❌ Error calling LLaMA: {e}")
         return ""
 
-
 def strip_fences(text: str) -> str:
-    if text.startswith(""):
-        lines = text.strip().split("\n")
-        if lines[0].startswith("") and lines[-1].startswith(""):
-            return "\n".join(lines[1:-1])
     return text.strip()
-
 
 def refactor_seed(seed_code: str) -> str:
     prompt = f"""Refactor the following Python function to improve clarity, structure, and maintainability.
@@ -73,7 +52,6 @@ Code:
 {seed_code}
 """
     return strip_fences(call_llama(prompt))
-
 
 def refactor_call_context(seed_before: str, seed_after: str, usage_block: str) -> str:
     prompt = f"""You are refactoring the following block of code that calls a function which was just refactored.
@@ -99,7 +77,6 @@ Return only the updated code, with no explanation.
 """
     return strip_fences(call_llama(prompt))
 
-
 def refactor_with_engine(original_code):
     refactor_engine = RefactoringEngine()
     results = refactor_engine.refactor_with_feedback_loop(
@@ -112,7 +89,6 @@ def refactor_with_engine(original_code):
 def extract_function_name(code: str) -> str:
     match = re.search(r'def\s+(\w+)\s*\(', code)
     return match.group(1) if match else None
-
 
 def find_function_usage_blocks(code: str, func_name: str, context_window: int = 1):
     lines = code.splitlines()
@@ -128,13 +104,11 @@ def find_function_usage_blocks(code: str, func_name: str, context_window: int = 
 
     return blocks
 
-
 def replace_blocks(content: str, new_blocks: list, positions: list) -> str:
     lines = content.splitlines()
     for (start, end), new_block in zip(positions, new_blocks):
         lines[start:end] = new_block.strip().splitlines()
     return "\n".join(lines)
-
 
 def print_diff(old: str, new: str, filename: str):
     diff = difflib.unified_diff(
@@ -146,30 +120,19 @@ def print_diff(old: str, new: str, filename: str):
     )
     print("\n".join(diff))
 
-
-def process_files(func_name: str, seed_before: str, seed_after: str):
+def process_files(func_name: str, seed_before: str, seed_after: str, target_dir: str):
     changed_files = 0
-    for root, _, files in os.walk(TARGET_DIR):
+    for root, _, files in os.walk(target_dir):
         for file in files:
-            if Path(file).suffix not in EXTENSIONS:
+            if Path(file).suffix != ".py":
                 continue
 
             path = os.path.join(root, file)
             with open(path, 'r') as f:
                 content = f.read()
 
-            if file == SEED_FILENAME:
-                # Overwrite the seed file
-                print(f"\n Overwriting seed file: {SEED_FILENAME}")
-                print_diff(content, seed_after, file)
-                with open(path, 'w') as f:
-                    f.write(seed_after)
-                changed_files += 1
-                continue
-
             blocks_with_pos = find_function_usage_blocks(content, func_name)
             if not blocks_with_pos:
-                print(f" {file}: No calls to `{func_name}` found.")
                 continue
 
             new_blocks = []
@@ -177,13 +140,12 @@ def process_files(func_name: str, seed_before: str, seed_after: str):
 
             for block, start, end in blocks_with_pos:
                 refactored = refactor_call_context(seed_before, seed_after, block)
-                if refactored and refactored.strip() != block.strip():
+                if refactored.strip() != block.strip():
                     print(f"\n🔧 Refactored block in {file}:")
                     print_diff(block, refactored, file)
                     new_blocks.append(refactored)
                     positions.append((start, end))
                 else:
-                    print(f"⚠️  Block unchanged in {file}.\n")
                     new_blocks.append(block)
                     positions.append((start, end))
 
@@ -195,43 +157,42 @@ def process_files(func_name: str, seed_before: str, seed_after: str):
 
     print(f"\n✅ Done. Refactored {changed_files} file(s).")
 
-
-def main():
-    if not os.path.exists(SEED_PATH):
-        print(f"❌ Seed file not found: {SEED_PATH}")
+# 🎯 THIS is the function to call from VS Code
+def refactor(seed_code: str, target_directory: str):
+    if not seed_code.strip():
+        print("❌ No seed code provided.")
         return
 
-    with open(SEED_PATH, 'r') as f:
-        seed_before = f.read().strip()
-
-    if not seed_before:
-        print("❌ Seed snippet is empty.")
-        return
-
-    print("📤 Sending seed snippet to LLaMA 4...")
-    # seed_after = refactor_seed(seed_before)
-    seed_after = refactor_with_engine(seed_before)
+    print("📤 Sending seed snippet to Mistral...")
+    seed_after = refactor_with_engine(seed_code)
 
     if not seed_after:
         print("❌ Refactor failed.")
         return
 
-    print("✅ Refactor received. Showing diff with original seed...")
-    print_diff(seed_before, seed_after, SEED_FILENAME)
-
-    # Overwrite the seed file
-    with open(SEED_PATH, 'w') as f:
-        f.write(seed_after)
-    print(f"💾 Overwrote {SEED_FILENAME} with refactored version.\n")
-
-    func_name = extract_function_name(seed_before)
+    print("✅ Refactor received.")
+    func_name = extract_function_name(seed_code)
     if not func_name:
         print("❌ Could not determine function name.")
         return
 
-    print(f"🔍 Searching for usages of `{func_name}` in files...\n")
-    process_files(func_name, seed_before, seed_after)
-
+    print(f"🔍 Refactoring usages of `{func_name}` in {target_directory}")
+    process_files(func_name, seed_code, seed_after, target_directory)
 
 if __name__ == "__main__":
-    main()
+    import sys
+    if len(sys.argv) != 3:
+        print("Usage: python3 test_simple.py <seed_code_file> <target_directory>")
+        sys.exit(1)
+
+    seed_path = sys.argv[1]
+    target_dir = sys.argv[2]
+
+    if not os.path.exists(seed_path):
+        print(f"❌ File not found: {seed_path}")
+        sys.exit(1)
+
+    with open(seed_path, 'r') as f:
+        seed_code = f.read()
+
+    refactor(seed_code, target_dir)

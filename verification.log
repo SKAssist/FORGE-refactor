@@ -132,3 +132,439 @@ SyntaxError: invalid syntax
 2025-05-18 01:10:59,184 - verification_system - INFO - Final equivalence determination: True
 2025-05-18 01:10:59,184 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'z3', 'crosshair']
 2025-05-18 01:10:59,184 - verification_system - INFO - Final result: True
+2025-05-18 01:23:07,008 - verification_system - INFO - Starting verification process
+2025-05-18 01:23:07,008 - verification_system - INFO - Extracting functions from code
+2025-05-18 01:23:07,009 - verification_system - INFO - Found 7 functions in original code
+2025-05-18 01:23:07,009 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 01:23:07,009 - verification_system - INFO - Starting runtime verification
+2025-05-18 01:23:07,011 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 01:23:07,011 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 01:23:07,011 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 01:23:07,011 - verification_system - INFO - First failure example: {'inputs': [[-71, -60, 26]], 'error': "name 'validate_input' is not defined"}
+2025-05-18 01:23:07,011 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 01:23:07,011 - verification_system - INFO - Extracting function signatures
+2025-05-18 01:23:07,012 - verification_system - INFO - Original function: validate_input with params ['data']
+2025-05-18 01:23:07,012 - verification_system - INFO - Refactored function: m with params ['data', 'k', 'doLog']
+2025-05-18 01:23:07,012 - verification_system - INFO - Loading functions from code
+2025-05-18 01:23:07,013 - verification_system - INFO - Starting Z3 verification
+2025-05-18 01:23:07,013 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 01:23:07,014 - verification_system - ERROR - Z3 verification error: Function call to isinstance not supported
+2025-05-18 01:23:07,015 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 892, in verify_refactoring
+    expr1 = translator1.translate(original_code, shared_vars)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 389, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 436, in visit_BoolOp
+    values = [self.visit(val) for val in node.values]
+              ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 485, in visit_UnaryOp
+    operand = self.visit(node.operand)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 515, in visit_Call
+    raise NotImplementedError(f"Function call to {func_name} not supported")
+NotImplementedError: Function call to isinstance not supported
+
+2025-05-18 01:23:07,015 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 01:23:07,015 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 01:23:07,016 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 01:23:07,016 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 01:23:07,016 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 01:23:07,016 - verification_system - INFO - Determining overall equivalence
+2025-05-18 01:23:07,016 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 01:23:07,016 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 01:23:07,016 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 01:23:07,016 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 01:23:07,017 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 01:23:07,017 - verification_system - INFO - Final result: False
+2025-05-18 01:27:00,871 - verification_system - INFO - Starting verification process
+2025-05-18 01:27:00,871 - verification_system - INFO - Extracting functions from code
+2025-05-18 01:27:00,871 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 01:27:00,871 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 01:27:00,872 - verification_system - INFO - Starting runtime verification
+2025-05-18 01:27:00,873 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 01:27:00,873 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 01:27:00,873 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 01:27:00,873 - verification_system - INFO - First failure example: {'inputs': [-33, -25], 'error': "'int' object is not iterable"}
+2025-05-18 01:27:00,873 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 01:27:00,873 - verification_system - INFO - Extracting function signatures
+2025-05-18 01:27:00,873 - verification_system - INFO - Original function: analyze_scores with params ['scores', 'threshold']
+2025-05-18 01:27:00,874 - verification_system - INFO - Refactored function: analyze_scores with params ['scores', 'threshold']
+2025-05-18 01:27:00,874 - verification_system - INFO - Loading functions from code
+2025-05-18 01:27:00,874 - verification_system - INFO - Starting Z3 verification
+2025-05-18 01:27:00,874 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 01:27:00,875 - verification_system - ERROR - Z3 verification error: division by zero
+2025-05-18 01:27:00,876 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 892, in verify_refactoring
+    expr1 = translator1.translate(original_code, shared_vars)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 386, in translate
+    self.local_vars[target.id] = self.visit(stmt.value)
+                                 ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 520, in visit_IfExp
+    then_branch = self.visit(node.body)
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 420, in visit_BinOp
+    return left / right
+           ~~~~~^~~~~~~
+ZeroDivisionError: division by zero
+
+2025-05-18 01:27:00,876 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 01:27:00,876 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 01:27:00,876 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 01:27:00,877 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 01:27:00,877 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 01:27:00,877 - verification_system - INFO - Determining overall equivalence
+2025-05-18 01:27:00,877 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 01:27:00,877 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 01:27:00,877 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 01:27:00,877 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 01:27:00,877 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 01:27:00,877 - verification_system - INFO - Final result: False
+2025-05-18 01:30:33,593 - verification_system - INFO - Starting verification process
+2025-05-18 01:30:33,593 - verification_system - INFO - Extracting functions from code
+2025-05-18 01:30:33,593 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 01:30:33,593 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 01:30:33,593 - verification_system - INFO - Starting runtime verification
+2025-05-18 01:30:33,595 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 01:30:33,595 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 01:30:33,595 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 01:30:33,595 - verification_system - INFO - First failure example: {'inputs': [-66, 18], 'error': "'int' object is not iterable"}
+2025-05-18 01:30:33,595 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 01:30:33,595 - verification_system - INFO - Extracting function signatures
+2025-05-18 01:30:33,595 - verification_system - INFO - Original function: analyze_scores with params ['scores', 'threshold']
+2025-05-18 01:30:33,595 - verification_system - INFO - Refactored function: analyze_scores with params ['scores', 'threshold']
+2025-05-18 01:30:33,595 - verification_system - INFO - Loading functions from code
+2025-05-18 01:30:33,596 - verification_system - INFO - Starting Z3 verification
+2025-05-18 01:30:33,596 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 01:30:33,596 - verification_system - ERROR - Z3 verification error: division by zero
+2025-05-18 01:30:33,597 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 892, in verify_refactoring
+    expr1 = translator1.translate(original_code, shared_vars)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 386, in translate
+    self.local_vars[target.id] = self.visit(stmt.value)
+                                 ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 520, in visit_IfExp
+    then_branch = self.visit(node.body)
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 420, in visit_BinOp
+    return left / right
+           ~~~~~^~~~~~~
+ZeroDivisionError: division by zero
+
+2025-05-18 01:30:33,597 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 01:30:33,597 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 01:30:33,597 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 01:30:33,597 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 01:30:33,597 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 01:30:33,598 - verification_system - INFO - Determining overall equivalence
+2025-05-18 01:30:33,598 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 01:30:33,598 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 01:30:33,598 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 01:30:33,598 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 01:30:33,598 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 01:30:33,598 - verification_system - INFO - Final result: False
+2025-05-18 01:34:10,836 - verification_system - INFO - Starting verification process
+2025-05-18 01:34:10,836 - verification_system - INFO - Extracting functions from code
+2025-05-18 01:34:10,836 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 01:34:10,837 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 01:34:10,837 - verification_system - INFO - Starting runtime verification
+2025-05-18 01:34:10,838 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 01:34:10,838 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 01:34:10,838 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 01:34:10,838 - verification_system - INFO - First failure example: {'inputs': [78, 65], 'error': "'int' object is not iterable"}
+2025-05-18 01:34:10,838 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 01:34:10,838 - verification_system - INFO - Extracting function signatures
+2025-05-18 01:34:10,838 - verification_system - INFO - Original function: analyze_scores with params ['scores', 'threshold']
+2025-05-18 01:34:10,838 - verification_system - INFO - Refactored function: analyze_scores with params ['scores', 'threshold']
+2025-05-18 01:34:10,838 - verification_system - INFO - Loading functions from code
+2025-05-18 01:34:10,839 - verification_system - INFO - Starting Z3 verification
+2025-05-18 01:34:10,839 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 01:34:10,839 - verification_system - ERROR - Z3 verification error: division by zero
+2025-05-18 01:34:10,840 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 892, in verify_refactoring
+    expr1 = translator1.translate(original_code, shared_vars)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 386, in translate
+    self.local_vars[target.id] = self.visit(stmt.value)
+                                 ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 520, in visit_IfExp
+    then_branch = self.visit(node.body)
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 420, in visit_BinOp
+    return left / right
+           ~~~~~^~~~~~~
+ZeroDivisionError: division by zero
+
+2025-05-18 01:34:10,840 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 01:34:10,840 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 01:34:10,840 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 01:34:10,840 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 01:34:10,840 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 01:34:10,840 - verification_system - INFO - Determining overall equivalence
+2025-05-18 01:34:10,840 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 01:34:10,840 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 01:34:10,841 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 01:34:10,841 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 01:34:10,841 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 01:34:10,841 - verification_system - INFO - Final result: False
+2025-05-18 01:44:21,393 - verification_system - INFO - Starting verification process
+2025-05-18 01:44:21,393 - verification_system - INFO - Extracting functions from code
+2025-05-18 01:44:21,394 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 01:44:21,394 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 01:44:21,395 - verification_system - INFO - Starting runtime verification
+2025-05-18 01:44:21,397 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 01:44:21,397 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 01:44:21,397 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 01:44:21,397 - verification_system - INFO - First failure example: {'inputs': [-74, 72], 'error': 'is_prime() takes 1 positional argument but 2 were given'}
+2025-05-18 01:44:21,397 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 01:44:21,397 - verification_system - INFO - Extracting function signatures
+2025-05-18 01:44:21,398 - verification_system - INFO - Original function: is_prime with params ['n', 'y']
+2025-05-18 01:44:21,398 - verification_system - INFO - Refactored function: is_prime with params ['n']
+2025-05-18 01:44:21,398 - verification_system - INFO - Loading functions from code
+2025-05-18 01:44:21,399 - verification_system - INFO - Starting Z3 verification
+2025-05-18 01:44:21,399 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 01:44:21,399 - verification_system - ERROR - Z3 verification error: Function call to isinstance not supported
+2025-05-18 01:44:21,401 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 894, in verify_refactoring
+    expr1 = translator1.translate(original_code, shared_vars)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 389, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 485, in visit_UnaryOp
+    operand = self.visit(node.operand)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 515, in visit_Call
+    raise NotImplementedError(f"Function call to {func_name} not supported")
+NotImplementedError: Function call to isinstance not supported
+
+2025-05-18 01:44:21,401 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 01:44:21,401 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 01:44:21,401 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 01:44:21,401 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 01:44:21,401 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 01:44:21,401 - verification_system - INFO - Determining overall equivalence
+2025-05-18 01:44:21,402 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 01:44:21,402 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 01:44:21,402 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 01:44:21,402 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 01:44:21,402 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 01:44:21,402 - verification_system - INFO - Final result: False
+2025-05-18 01:52:55,701 - httpx - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-18 01:52:55,703 - verification_system - INFO - Starting verification process
+2025-05-18 01:52:55,704 - verification_system - INFO - Extracting functions from code
+2025-05-18 01:52:55,705 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 01:52:55,705 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 01:52:55,705 - verification_system - INFO - Starting runtime verification
+2025-05-18 01:52:55,707 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 01:52:55,707 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 01:52:55,707 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 01:52:55,707 - verification_system - INFO - First failure example: {'inputs': [-26, -6.813751939011524], 'error': 'is_prime() takes 1 positional argument but 2 were given'}
+2025-05-18 01:52:55,707 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 01:52:55,707 - verification_system - INFO - Extracting function signatures
+2025-05-18 01:52:55,708 - verification_system - INFO - Original function: is_prime with params ['n', 'y']
+2025-05-18 01:52:55,708 - verification_system - INFO - Refactored function: is_prime with params ['n']
+2025-05-18 01:52:55,708 - verification_system - INFO - Loading functions from code
+2025-05-18 01:52:55,709 - verification_system - INFO - Starting Z3 verification
+2025-05-18 01:52:55,709 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 01:52:55,710 - verification_system - ERROR - Z3 verification error: Function call to isinstance not supported
+2025-05-18 01:52:55,711 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 916, in verify_refactoring
+    expr1 = translator1.translate(original_code, shared_vars)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 410, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 506, in visit_UnaryOp
+    operand = self.visit(node.operand)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 536, in visit_Call
+    raise NotImplementedError(f"Function call to {func_name} not supported")
+NotImplementedError: Function call to isinstance not supported
+
+2025-05-18 01:52:55,711 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 01:52:55,711 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 01:52:55,711 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 01:52:55,712 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 01:52:55,712 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 01:52:55,712 - verification_system - INFO - Determining overall equivalence
+2025-05-18 01:52:55,712 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 01:52:55,712 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 01:52:55,712 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 01:52:55,712 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 01:52:55,712 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 01:52:55,712 - verification_system - INFO - Final result: False
+2025-05-18 01:53:28,754 - httpx - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-18 01:53:50,473 - httpx - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-18 01:53:50,474 - verification_system - INFO - Starting verification process
+2025-05-18 01:53:50,474 - verification_system - INFO - Extracting functions from code
+2025-05-18 01:53:50,476 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 01:53:50,476 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 01:53:50,476 - verification_system - INFO - Starting runtime verification
+2025-05-18 01:53:50,478 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 01:53:50,478 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 01:53:50,478 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 01:53:50,478 - verification_system - INFO - First failure example: {'inputs': [-99, 68.57175048994642], 'error': "Parameter 'y' is not used and should be omitted."}
+2025-05-18 01:53:50,478 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 01:53:50,478 - verification_system - INFO - Extracting function signatures
+2025-05-18 01:53:50,479 - verification_system - INFO - Original function: is_prime with params ['n', 'y']
+2025-05-18 01:53:50,479 - verification_system - INFO - Refactored function: is_prime with params ['n', 'y']
+2025-05-18 01:53:50,479 - verification_system - INFO - Loading functions from code
+2025-05-18 01:53:50,480 - verification_system - INFO - Starting Z3 verification
+2025-05-18 01:53:50,480 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 01:53:50,481 - verification_system - ERROR - Z3 verification error: Function call to isinstance not supported
+2025-05-18 01:53:50,481 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 916, in verify_refactoring
+    expr1 = translator1.translate(original_code, shared_vars)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 410, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 506, in visit_UnaryOp
+    operand = self.visit(node.operand)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 536, in visit_Call
+    raise NotImplementedError(f"Function call to {func_name} not supported")
+NotImplementedError: Function call to isinstance not supported
+
+2025-05-18 01:53:50,481 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 01:53:50,481 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 01:53:50,481 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 01:53:50,482 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 01:53:50,482 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 01:53:50,482 - verification_system - INFO - Determining overall equivalence
+2025-05-18 01:53:50,482 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 01:53:50,482 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 01:53:50,482 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 01:53:50,482 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 01:53:50,482 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 01:53:50,482 - verification_system - INFO - Final result: False
+2025-05-18 01:54:03,651 - httpx - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-18 01:54:12,660 - httpx - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-18 01:54:12,661 - verification_system - INFO - Starting verification process
+2025-05-18 01:54:12,661 - verification_system - INFO - Extracting functions from code
+2025-05-18 01:54:12,662 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 01:54:12,663 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 01:54:12,663 - verification_system - INFO - Starting runtime verification
+2025-05-18 01:54:12,665 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 01:54:12,665 - verification_system - INFO - Runtime verification result: equivalent=True
+2025-05-18 01:54:12,665 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 01:54:12,665 - verification_system - INFO - Extracting function signatures
+2025-05-18 01:54:12,666 - verification_system - INFO - Original function: is_prime with params ['n', 'y']
+2025-05-18 01:54:12,666 - verification_system - INFO - Refactored function: is_prime with params ['n', 'y']
+2025-05-18 01:54:12,666 - verification_system - INFO - Loading functions from code
+2025-05-18 01:54:12,667 - verification_system - INFO - Starting Z3 verification
+2025-05-18 01:54:12,667 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 01:54:12,667 - verification_system - ERROR - Z3 verification error: Function call to isinstance not supported
+2025-05-18 01:54:12,668 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 916, in verify_refactoring
+    expr1 = translator1.translate(original_code, shared_vars)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 410, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 506, in visit_UnaryOp
+    operand = self.visit(node.operand)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 536, in visit_Call
+    raise NotImplementedError(f"Function call to {func_name} not supported")
+NotImplementedError: Function call to isinstance not supported
+
+2025-05-18 01:54:12,668 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 01:54:12,668 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 01:54:12,668 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 01:54:12,668 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 01:54:12,668 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 01:54:12,668 - verification_system - INFO - Determining overall equivalence
+2025-05-18 01:54:12,669 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 01:54:12,669 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 01:54:12,669 - verification_system - INFO - Runtime testing says equivalent: True
+2025-05-18 01:54:12,669 - verification_system - INFO - Final equivalence determination: True
+2025-05-18 01:54:12,669 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 01:54:12,669 - verification_system - INFO - Final result: True
+2025-05-18 01:54:14,353 - httpx - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-18 01:54:15,903 - httpx - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-18 01:54:17,471 - httpx - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-18 01:54:17,693 - httpx - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-18 02:09:04,941 - httpx - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-18 02:09:04,943 - verification_system - INFO - Starting verification process
+2025-05-18 02:09:04,943 - verification_system - INFO - Extracting functions from code
+2025-05-18 02:09:04,944 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 02:09:04,944 - verification_system - INFO - Found 5 functions in refactored code
+2025-05-18 02:09:04,944 - verification_system - INFO - Detected helper functions in refactored code
+2025-05-18 02:09:04,944 - verification_system - INFO - Starting runtime verification
+2025-05-18 02:09:04,945 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 02:09:04,945 - verification_system - INFO - Runtime verification result: equivalent=True
+2025-05-18 02:09:04,945 - verification_system - INFO - Determining overall equivalence
+2025-05-18 02:09:04,945 - verification_system - INFO - Code has helper functions, relying on runtime verification only
+2025-05-18 02:09:04,945 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 02:09:04,945 - verification_system - INFO - Final result: True
+2025-05-18 02:09:05,967 - httpx - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-18 02:09:06,957 - httpx - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-18 02:09:07,170 - httpx - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-18 02:12:35,633 - verification_system - INFO - Starting verification process
+2025-05-18 02:12:35,634 - verification_system - INFO - Extracting functions from code
+2025-05-18 02:12:35,634 - verification_system - INFO - Found 5 functions in original code
+2025-05-18 02:12:35,634 - verification_system - INFO - Found 4 functions in refactored code
+2025-05-18 02:12:35,634 - verification_system - INFO - Detected helper functions in refactored code
+2025-05-18 02:12:35,634 - verification_system - INFO - Starting runtime verification
+2025-05-18 02:12:35,635 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 02:12:35,635 - verification_system - INFO - Runtime verification result: equivalent=True
+2025-05-18 02:12:35,635 - verification_system - INFO - Determining overall equivalence
+2025-05-18 02:12:35,635 - verification_system - INFO - Code has helper functions, relying on runtime verification only
+2025-05-18 02:12:35,636 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 02:12:35,636 - verification_system - INFO - Final result: True

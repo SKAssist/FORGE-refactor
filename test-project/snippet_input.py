@@ -1,47 +1,27 @@
-def validate_input(data):
-    if not isinstance(data, list) or not all(isinstance(i, int) for i in data):
-        raise ValueError("bad input")
+def analyze_scores(scores, threshold=60):
+    total = 0
+    count = 0
+    passed_count = 0
+    failed_count = 0
 
-def compute_sum(data, start, k):
-    end = min(start + k, len(data))
-    return sum(data[j] if data[j] % 2 == 0 else data[j] * 2 for j in range(start, end))
+    def calculate_total_and_count():
+        nonlocal total, count
+        for s in scores:
+            if not isinstance(s, (int, float)):
+                continue
+            total += s
+            count += 1
 
-def compute_average(data, start, k):
-    end = min(start + k, len(data))
-    return compute_sum(data, start, k) / (end - start)
+    calculate_total_and_count()
 
-def log_intermediate_result(index, avg, doLog):
-    if doLog:
-        print(f"Intermediate avg for index {index}: {avg}")
+    average = total / count if count > 0 else 0
 
-def log_under_threshold(avg, doLog):
-    if doLog:
-        try:
-            print(f"avg: {avg}, under threshold")
-        except Exception as e:
-            print("err", e)
+    passed_count = sum(1 for s in scores if isinstance(s, (int, float)) and s >= threshold)
+    failed_count = count - passed_count
 
-def process_results(results):
-    final = []
-    for idx, val in results:
-        if callable(val):
-            val = val()
-        if isinstance(val, (int, float)):
-            final.append(round(val, 2))
-    return final
-
-def m(data, k=3, doLog=False):
-    validate_input(data)
-
-    results = []
-    for i in range(len(data)):
-        avg = compute_average(data, i, k)
-        log_intermediate_result(i, avg, doLog)
-
-        if avg > 10:
-            results.append((i, avg))
-        else:
-            log_under_threshold(avg, doLog)
-            results.append((i, lambda x=avg: x * 2 if x < 5 else x / 2))
-
-    return process_results(results)
+    return {
+        "count": count,
+        "average": round(average, 2),
+        "passed": passed_count,
+        "failed": failed_count
+    }
