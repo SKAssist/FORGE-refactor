@@ -1,71 +1,33 @@
-# forge README
+# FORGE: Formally-verified Optimized Refactoring Guided by Equivalence
 
-This is the README for your extension "forge". After writing up a brief description, we recommend including the following sections.
+![FORGE Banner](https://via.placeholder.com/1200x300)
 
-## Features
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![VS Code Extension](https://img.shields.io/badge/VSCode-Extension-blue)](https://marketplace.visualstudio.com/items?itemName=FORGE.forge-refactor)
+[![Python Version](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/downloads/)
+[![Meta Llama 3 Hackathon Winner](https://img.shields.io/badge/Meta%20Llama%203-Hackathon%20Winner-green)](https://github.com/FORGE-refactor)
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+FORGE is a VSCode extension that automatically refactors your Python code using Llama 3, then mathematically verifies the refactored code's equivalence to the original. Say goodbye to bugs introduced during refactoring and AI-generated code bloat.
 
-For example if there is an image subfolder under your extension project workspace:
+## ✨ Features
 
-\!\[feature X\]\(images/feature-x.png\)
+- **Guaranteed Equivalence**: Formal verification ensures refactored code behaves exactly like the original  
+- **Clean Refactoring**: Intelligent improvements without unnecessary abstractions or bloat  
+- **Multi-Method Verification**: Z3 theorem proving, runtime testing, and property-based testing  
+- **Feedback Loop**: When verification fails, FORGE iteratively refines the solution  
+- **VSCode Integration**: Simple right-click to refactor selected code  
+- **Cross-File References**: Automatically updates function calls across your project  
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## 🚀 Installation
 
-## Requirements
+Install directly from the VSCode Marketplace:
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+1. Open VSCode  
+2. Go to Extensions (Ctrl+Shift+X)  
+3. Search for "FORGE Refactor"  
+4. Click Install  
 
-## Extension Settings
+Or install via the command line:
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+```bash
+code --install-extension FORGE.forge-refactor
