@@ -1,8 +1,10 @@
 import os
 import re
+import sys
 import requests
 import difflib
 from pathlib import Path
+
 
 # Configuration
 TARGET_DIR = 'test-project'
@@ -12,6 +14,24 @@ EXTENSIONS = {'.py'}
 OLLAMA_URL = 'http://localhost:11434/api/generate'
 MODEL_NAME = 'llama3'
 
+from mistralai import Mistral
+
+api_key = "shZl9BS91mQ08w7NX4FpGlifFyiMH5fj"
+model = "mistral-large-latest"
+
+client = Mistral(api_key=api_key)
+
+def call_mistral(prompt):
+    chat_response = client.chat.complete(
+        model= model,
+        messages = [
+            {
+                "role": "user",
+                "content": prompt,
+            },
+        ]
+    )
+    return chat_response.choices[0].message.content
 
 def call_llama(prompt: str) -> str:
     payload = {
@@ -29,9 +49,9 @@ def call_llama(prompt: str) -> str:
 
 
 def strip_fences(text: str) -> str:
-    if text.startswith("```"):
+    if text.startswith(" "):
         lines = text.strip().split("\n")
-        if lines[0].startswith("```") and lines[-1].startswith("```"):
+        if lines[0].startswith(" ") and lines[-1].startswith(" "):
             return "\n".join(lines[1:-1])
     return text.strip()
 
@@ -48,7 +68,7 @@ def refactor_seed(seed_code: str) -> str:
 Code:
 {seed_code}
 """
-    return strip_fences(call_llama(prompt))
+    return strip_fences(call_mistral(prompt))
 
 
 def refactor_call_context(seed_before: str, seed_after: str, usage_block: str) -> str:
@@ -73,7 +93,7 @@ Block:
 
 Return only the updated code, with no explanation.
 """
-    return strip_fences(call_llama(prompt))
+    return strip_fences(call_mistral(prompt))
 
 
 def extract_function_name(code: str) -> str:

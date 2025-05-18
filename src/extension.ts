@@ -1,61 +1,52 @@
 import * as vscode from 'vscode';
+import { exec } from 'child_process';
 import * as fs from 'fs';
 import * as path from 'path';
-import { exec } from 'child_process';
 
 export function activate(context: vscode.ExtensionContext) {
-	const disposable = vscode.commands.registerCommand('forge.refactorSelection', async () => {
-		const editor = vscode.window.activeTextEditor;
-		if (!editor) {
-			vscode.window.showInformationMessage('No active editor.');
-			return;
-		}
+  const disposable = vscode.commands.registerCommand(
+    'llamaRefactor.refactorSelection',
+    async () => {
+      const editor = vscode.window.activeTextEditor;
+      if (!editor) {
+        vscode.window.showErrorMessage('❌ No active editor found.');
+        return;
+      }
 
-		const selection = editor.selection;
-		const selectedText = editor.document.getText(selection);
-		if (!selectedText.trim()) {
-			vscode.window.showInformationMessage('Please highlight a code snippet to refactor.');
-			return;
-		}
+      const selection = editor.document.getText(editor.selection);
+      if (!selection.trim()) {
+        vscode.window.showErrorMessage('❌ No code selected.');
+        return;
+      }
 
-		const workspaceFolder = vscode.workspace.workspaceFolders?.[0];
-		if (!workspaceFolder) {
-			vscode.window.showErrorMessage('Workspace not found.');
-			return;
-		}
+      const documentPath = editor.document.uri.fsPath;
+      const targetDir = path.dirname(documentPath);
+      const scriptPath = '/home/ubuntu/FORGE-refactor/test_changes/test_cross_file_llama4_refactor.py';
 
-		const workspacePath = workspaceFolder.uri.fsPath;
-		const seedPath = path.join(workspacePath, 'test-project', 'snippet_input.py');
-		const scriptPath = path.join(context.extensionPath, 'refactor_snippet_workspace.py');
+      try {
+        // Overwrite the file with the selected snippet
+        fs.writeFileSync(documentPath, selection);
+        await editor.document.save();
 
-		// Write highlighted code to snippet file
-		fs.mkdirSync(path.dirname(seedPath), { recursive: true });
-		fs.writeFileSync(seedPath, selectedText);
+        // Call the Python script with both the seed file and target directory
+        exec(`python3 "${scriptPath}" "${documentPath}" "${targetDir}"`, (error, stdout, stderr) => {
+          if (error) {
+            vscode.window.showErrorMessage(`❌ Error: ${(error as Error).message}`);
+            console.error(stderr);
+            return;
+          }
 
-		const command = `python3 "${scriptPath}" "${seedPath}" "${workspacePath}"`;
-		vscode.window.showInformationMessage('🔧 Refactoring with LLaMA...');
+          vscode.window.showInformationMessage('✅ LLaMA refactor complete.');
+          console.log(stdout);
+          if (stderr) console.error(stderr);
+        });
+      } catch (err) {
+        vscode.window.showErrorMessage(`❌ Failed to process selection: ${(err as Error).message}`);
+      }
+    }
+  );
 
-		exec(command, (err, stdout, stderr) => {
-			if (err) {
-				vscode.window.showErrorMessage(`❌ Refactor failed: ${stderr}`);
-				return;
-			}
-
-			fs.readFile(seedPath, 'utf8', (err, data) => {
-				if (err) {
-					vscode.window.showErrorMessage('❌ Failed to read refactored snippet.');
-					return;
-				}
-				editor.edit(editBuilder => {
-					editBuilder.replace(selection, data);
-				});
-				vscode.window.showInformationMessage('✅ Snippet refactored and applied.');
-				console.log(stdout);
-			});
-		});
-	});
-
-	context.subscriptions.push(disposable);
+  context.subscriptions.push(disposable);
 }
 
 export function deactivate() {}

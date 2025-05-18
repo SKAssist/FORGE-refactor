@@ -3,18 +3,44 @@ import inspect
 import json
 import re
 import subprocess
+import time
 import sys
 import traceback
+import json
+import sys
+import math
+import requests
 from dataclasses import dataclass
 from enum import Enum
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple, Union
+import logging
+
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("verification.log"),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger("verification_system")
 
 from crosshair.core_and_libs import analyze_function
 from z3 import *
+OLLAMA_API_URL = "http://localhost:11434/api/generate"
 
-# ===============================================
-# LLM Integration Components
-# ===============================================
+def query_llama3(prompt: str) -> str:
+    payload = {
+        "model": "llama3",
+        "prompt": prompt,
+        "stream": False
+    }
+    headers = {"Content-Type": "application/json"}
+    response = requests.post(OLLAMA_API_URL, json=payload, headers=headers)
+    response_json = response.json()
+    
+    return response_json["response"]
 
 class LLMProvider(Enum):
     OPENAI = "openai"
@@ -34,74 +60,10 @@ class LLMInterface:
     """Interface for interacting with LLM APIs"""
     
     def __init__(self, config: LLMConfig):
-        self.config = config
-        self._initialize_client()
+       pass
     
-    def _initialize_client(self):
-        """Initialize the appropriate client based on provider"""
-        if self.config.provider == LLMProvider.OPENAI:
-            try:
-                import openai
-                openai.api_key = self.config.api_key
-                self.client = openai.OpenAI()
-            except ImportError:
-                raise ImportError("OpenAI Python package not found. Install with: pip install openai")
-                
-        elif self.config.provider == LLMProvider.ANTHROPIC:
-            try:
-                import anthropic
-                self.client = anthropic.Anthropic(api_key=self.config.api_key)
-            except ImportError:
-                raise ImportError("Anthropic Python package not found. Install with: pip install anthropic")
-        
-        elif self.config.provider == LLMProvider.OLLAMA:
-            try:
-                import requests
-                self.client = None  # Ollama doesn't need a client object
-                self.requests = requests
-                if not self.config.api_url:
-                    self.config.api_url = "http://localhost:11434/api/generate"
-            except ImportError:
-                raise ImportError("Requests Python package not found. Install with: pip install requests")
-        else:
-            raise ValueError(f"Unsupported LLM provider: {self.config.provider}")
     
-    def generate_code(self, prompt: str) -> str:
-        """Generate code using the configured LLM"""
-        try:
-            if self.config.provider == LLMProvider.OPENAI:
-                response = self.client.chat.completions.create(
-                    model=self.config.model_name,
-                    messages=[{"role": "user", "content": prompt}],
-                    temperature=self.config.temperature,
-                    max_tokens=self.config.max_tokens
-                )
-                return response.choices[0].message.content
-                
-            elif self.config.provider == LLMProvider.ANTHROPIC:
-                response = self.client.messages.create(
-                    model=self.config.model_name,
-                    max_tokens=self.config.max_tokens,
-                    temperature=self.config.temperature,
-                    messages=[{"role": "user", "content": prompt}]
-                )
-                return response.content[0].text
-            
-            elif self.config.provider == LLMProvider.OLLAMA:
-                payload = {
-                    "model": self.config.model_name,
-                    "prompt": prompt,
-                    "stream": False
-                }
-                headers = {"Content-Type": "application/json"}
-                response = self.requests.post(self.config.api_url, json=payload, headers=headers)
-                response_json = response.json()
-                return response_json["response"]
-                
-        except Exception as e:
-            print(f"Error generating code: {e}")
-            return ""
-
+    
     def analyze_verification_results(self, original_code: str, refactored_code: str, 
                                     verification_results: Dict) -> str:
         """Process verification results to provide insights and improvement suggestions"""
@@ -130,7 +92,7 @@ class LLMInterface:
         Return your response in a clear, structured format.
         """
         
-        return self.generate_code(prompt)
+        return query_llama3(prompt)
 
 # ===============================================
 # AST Analysis and Z3 Translation
@@ -168,7 +130,166 @@ class ASTAnalyzer:
         visitor = ComplexityVisitor()
         visitor.visit(tree)
         return visitor.metrics
+    @staticmethod
+    def extract_all_functions(code: str) -> Dict[str, ast.FunctionDef]:
+        """Extract all function definitions from code"""
+        tree = ast.parse(code)
+        functions = {}
+        
+        for node in tree.body:
+            if isinstance(node, ast.FunctionDef):
+                functions[node.name] = node
+                
+        return functions
 
+    @staticmethod
+    def detect_entry_point(functions: Dict[str, ast.FunctionDef], original_func_name: str) -> str:
+        """Determine which function is the main entry point"""
+        # If original function name exists in refactored code, that's our entry point
+        if original_func_name in functions:
+            return original_func_name
+            
+        # Otherwise, heuristic: the entry point is likely the function that isn't called by others
+        called_functions = set()
+        for func_name, func_def in functions.items():
+            visitor = FunctionCallVisitor()
+            visitor.visit(func_def)
+            called_functions.update(visitor.called_functions)
+            
+        # Functions that aren't called by other functions
+        candidate_entry_points = set(functions.keys()) - called_functions
+        
+        if len(candidate_entry_points) == 1:
+            return next(iter(candidate_entry_points))
+        elif len(candidate_entry_points) > 1:
+            # If multiple candidates, return the one with the most similar signature to original
+            # For simplicity, return the first one
+            return next(iter(candidate_entry_points))
+        else:
+            # All functions are called somewhere, might be recursive
+            # Default to the function with the same name as original, or the first one
+            return original_func_name if original_func_name in functions else next(iter(functions.keys()))
+
+class FunctionCallVisitor(ast.NodeVisitor):
+    """AST visitor to find function calls"""
+    
+    def __init__(self):
+        self.called_functions = set()
+        
+    def visit_Call(self, node):
+        if isinstance(node.func, ast.Name):
+            self.called_functions.add(node.func.id)
+        self.generic_visit(node)
+
+class RuntimeEquivalenceTester:
+    """Test function equivalence through runtime execution"""
+    
+    @staticmethod
+    def test_equivalence(original_code: str, refactored_code: str, num_tests: int = 100) -> Dict:
+        """Test equivalence by running both functions with the same inputs"""
+        # Extract function information
+        try:
+            original_functions = ASTAnalyzer.extract_all_functions(original_code)
+            refactored_functions = ASTAnalyzer.extract_all_functions(refactored_code)
+            
+            original_func_name = next(iter(original_functions.keys()))
+            refactored_entry_point = ASTAnalyzer.detect_entry_point(
+                refactored_functions, original_func_name)
+            
+            # Extract parameter info
+            original_params = [arg.arg for arg in original_functions[original_func_name].args.args]
+            
+            # Dynamically execute the code to get actual function objects
+            original_namespace = {}
+            refactored_namespace = {}
+            
+            exec(original_code, original_namespace)
+            exec(refactored_code, refactored_namespace)
+            
+            original_func = original_namespace[original_func_name]
+            refactored_func = refactored_namespace[refactored_entry_point]
+            
+            # Generate test cases
+            test_cases = RuntimeEquivalenceTester.generate_test_cases(original_params, num_tests)
+            
+            # Run tests
+            results = {
+                "equivalent": True,
+                "tests_run": num_tests,
+                "failures": []
+            }
+            
+            for test_case in test_cases:
+                try:
+                    original_result = original_func(*test_case)
+                    refactored_result = refactored_func(*test_case)
+                    
+                    if original_result != refactored_result:
+                        results["equivalent"] = False
+                        results["failures"].append({
+                            "inputs": test_case,
+                            "original_output": str(original_result),
+                            "refactored_output": str(refactored_result)
+                        })
+                except Exception as e:
+                    results["equivalent"] = False
+                    results["failures"].append({
+                        "inputs": test_case,
+                        "error": str(e)
+                    })
+            
+            return results
+        except Exception as e:
+            return {
+                "equivalent": False,
+                "error": str(e),
+                "tests_run": 0,
+                "failures": []
+            }
+    
+    @staticmethod
+    def generate_test_cases(param_names, num_tests):
+        """Generate test cases for the given parameters"""
+        import random
+        
+        test_cases = []
+        for _ in range(num_tests):
+            # Basic test cases for common parameter types
+            test_case = []
+            for param in param_names:
+                # Simple heuristic based on parameter name
+                if param.lower() in ('n', 'num', 'number', 'count', 'size', 'length'):
+                    # Likely an integer
+                    test_case.append(random.randint(-100, 100))
+                elif param.lower() in ('x', 'y', 'z', 'value', 'val'):
+                    # Could be integer or float
+                    if random.random() < 0.5:
+                        test_case.append(random.randint(-100, 100))
+                    else:
+                        test_case.append(random.uniform(-100.0, 100.0))
+                elif param.lower() in ('list', 'array', 'items', 'elements', 'numbers', 'values', 'data'):
+                    # Likely a list
+                    list_length = random.randint(0, 10)
+                    test_case.append([random.randint(-100, 100) for _ in range(list_length)])
+                elif param.lower() in ('dict', 'map', 'hash', 'table'):
+                    # Likely a dictionary
+                    dict_size = random.randint(0, 5)
+                    test_case.append({f"key{i}": random.randint(-100, 100) for i in range(dict_size)})
+                elif param.lower() in ('flag', 'check', 'is_', 'has_', 'enable', 'disable'):
+                    # Likely a boolean
+                    test_case.append(random.choice([True, False]))
+                elif param.lower() in ('name', 'path', 'file', 'str', 'string'):
+                    # Likely a string
+                    choices = ["", "test", "hello", "world", "python", "a" * random.randint(1, 10)]
+                    test_case.append(random.choice(choices))
+                else:
+                    # Default to integer
+                    test_case.append(random.randint(-100, 100))
+            
+            test_cases.append(test_case)
+        
+        return test_cases
+    
 class ComplexityVisitor(ast.NodeVisitor):
     """AST visitor to calculate code complexity metrics"""
     
@@ -586,7 +707,7 @@ class RefactoringEngine:
     """Main engine for code refactoring and verification"""
     
     def __init__(self, llm_config: Optional[LLMConfig] = None):
-        self.llm = LLMInterface(llm_config) if llm_config else None
+        self.llm = LLMInterface(None)
     
     def generate_refactored_code(self, original_code: str, refactoring_strategy: str = "optimize_for_readability") -> str:
         """Generate refactored version of the code using Llama"""
@@ -599,44 +720,61 @@ class RefactoringEngine:
             print(f"Error analyzing code: {e}")
             complexity_metrics = {"cyclomatic_complexity": "unknown", "num_operations": "unknown", "max_nesting_depth": "unknown"}
         
-        # Build prompt for the LLM
-        prompt = f"""
-        Refactor the following Python function using the strategy: {refactoring_strategy}
-        
-        Original function:
-        ```python
-        {original_code}
-        ```
-        
-        I need you to refactor this function while preserving its exact behavior.
-        The refactored function should:
-        1. Have the same input-output behavior for all valid inputs
-        2. Have improved {refactoring_strategy} characteristics
-        3. Be functionally equivalent to the original
-        Improve clarity, efficiency, and maintainability:
-        - Remove redundancy
-        - Simplify logic
-        - Simplify code
-        - Decompose complex logic into helpers
-        - Improve naming
-        - Ensure functionality is preserved
-        - DO NOT use complex Python constructs like list comprehensions, generator expressions, or built-in functions like any(), all(), map(), filter(), etc.
-        Return only the Python code for the refactored function without any explanation.
-        """
+        # Build prompt based on refactoring strategy
+        if refactoring_strategy == "optimize_for_readability":
+            prompt = f"""
+            Refactor the following code to improve clarity and readability:
+            
+            - Extract complex logic into properly named helper functions
+            - Improve variable names for better understanding
+            - Simplify complex conditionals and operations
+            - Ensure the main function keeps the same name and parameters
+            - Keep the exact same behavior for all inputs
+            - Do not decompose functions into multiple helpers
+            
+            Original code:
+            ```python
+            {original_code}
+            ```
+            
+            Return only the Python code for the refactored function without any explanation.
+            """
+        else:
+            # Default prompt
+            prompt = f"""
+            Refactor the following Python function using the strategy: {refactoring_strategy}
+            
+            Original function:
+            ```python
+            {original_code}
+            ```
+            
+            I need you to refactor this function while preserving its exact behavior.
+            The refactored function should:
+            1. Have the same input-output behavior for all valid inputs
+            2. Have improved {refactoring_strategy} characteristics
+            3. Be functionally equivalent to the original
+            
+            Improve clarity, efficiency, and maintainability:
+            - Remove redundancy
+            - Simplify logic
+            - DO NOT DECOMPOSE THE FUNCTION INTO MULTIPLE
+            - Improve naming
+            - Ensure functionality is preserved
+            
+            Return only the Python code for the refactored function without any explanation.
+            """
         
         refactored_code = query_llama3(prompt)
         
         # Clean up the code to remove any markdown code blocks
         refactored_code = extract_code_block(refactored_code)
-    
+
         return refactored_code
-    
     
     def generate_verification_constraints(self, original_code: str, refactored_code: str) -> List[str]:
         """Generate additional verification constraints using LLM"""
-        if not self.llm:
-            raise ValueError("LLM not configured. Please provide LLM configuration.")
-        
+       
         prompt = f"""
         Analyze the following functions and generate verification constraints to ensure their equivalence.
         
@@ -656,7 +794,7 @@ class RefactoringEngine:
         Format your response as a JSON list of strings, each representing a constraint.
         """
         
-        constraints_text = self.llm.generate_code(prompt)
+        constraints_text = query_llama3(prompt)
         
         # Extract JSON list from response
         try:
@@ -672,80 +810,180 @@ class RefactoringEngine:
             return []
     
     def verify_refactoring(self, original_code: str, refactored_code: str) -> Dict:
-        """Verify the equivalence of original and refactored code"""
+        """Verify the equivalence of original and refactored code with detailed logging"""
+        logger.info("Starting verification process")
+        
         results = {
             "z3_verification": None,
             "crosshair_verification": None,
+            "runtime_verification": None,
             "equivalent": False,
-            "error": None
+            "error": None,
+            "verification_steps": []  # Track which steps were actually performed
         }
         
         try:
-            # Extract function information
-            original_func_name, original_params, _ = ASTAnalyzer.extract_function_signature(original_code)
-            refactored_func_name, refactored_params, _ = ASTAnalyzer.extract_function_signature(refactored_code)
+            # Check if code has multiple functions
+            logger.info("Extracting functions from code")
+            original_functions = ASTAnalyzer.extract_all_functions(original_code)
+            refactored_functions = ASTAnalyzer.extract_all_functions(refactored_code)
             
-            # Execute both function definitions
-            original_func = get_function_from_code(original_code, original_func_name)
-            refactored_func = get_function_from_code(refactored_code, refactored_func_name)
+            logger.info(f"Found {len(original_functions)} functions in original code")
+            logger.info(f"Found {len(refactored_functions)} functions in refactored code")
             
-            # Z3 verification
+            has_helper_functions = len(refactored_functions) > 1
+            if has_helper_functions:
+                logger.info("Detected helper functions in refactored code")
+            
+            # Runtime testing (works for both single and multiple function code)
+            logger.info("Starting runtime verification")
             try:
-                translator1 = PythonToZ3Translator()
-                translator2 = PythonToZ3Translator()
+                start_time = time.time()
+                runtime_results = RuntimeEquivalenceTester.test_equivalence(
+                    original_code, refactored_code, num_tests=50)
+                end_time = time.time()
                 
-                # Create shared symbolic variables
-                shared_vars = {}
-                for param in original_params:
-                    shared_vars[param] = Int(param)
+                logger.info(f"Runtime verification completed in {end_time - start_time:.2f} seconds")
+                logger.info(f"Runtime verification result: equivalent={runtime_results.get('equivalent', False)}")
                 
-                # Create parameter mapping between original and refactored
-                param_mapping = {}
-                if len(original_params) == len(refactored_params):
-                    param_mapping = dict(zip(refactored_params, [shared_vars[p] for p in original_params]))
+                if not runtime_results.get('equivalent', False) and runtime_results.get('failures'):
+                    logger.info(f"Runtime verification failures: {len(runtime_results['failures'])}")
+                    logger.info(f"First failure example: {runtime_results['failures'][0] if runtime_results['failures'] else 'None'}")
                 
-                # Translate functions to Z3 expressions
-                expr1 = translator1.translate(original_code, shared_vars)
-                expr2 = translator2.translate(refactored_code, param_mapping)
+                results["runtime_verification"] = runtime_results
+                results["verification_steps"].append("runtime")
                 
-                # Verify with Z3
-                z3_result = Z3Verifier.verify_equivalence(expr1, expr2)
-                results["z3_verification"] = z3_result
+                # For simple code without helpers, continue with other verification methods
+                if not has_helper_functions:
+                    logger.info("Code has no helper functions, proceeding with Z3 and CrossHair verification")
+                    
+                    try:
+                        # Get function signatures for Z3 and CrossHair
+                        logger.info("Extracting function signatures")
+                        original_func_name, original_params, _ = ASTAnalyzer.extract_function_signature(original_code)
+                        refactored_func_name, refactored_params, _ = ASTAnalyzer.extract_function_signature(refactored_code)
+                        
+                        logger.info(f"Original function: {original_func_name} with params {original_params}")
+                        logger.info(f"Refactored function: {refactored_func_name} with params {refactored_params}")
+                        
+                        # Execute both function definitions
+                        logger.info("Loading functions from code")
+                        original_func = get_function_from_code(original_code, original_func_name)
+                        refactored_func = get_function_from_code(refactored_code, refactored_func_name)
+                        
+                        # Z3 verification
+                        logger.info("Starting Z3 verification")
+                        try:
+                            start_time = time.time()
+                            translator1 = PythonToZ3Translator()
+                            translator2 = PythonToZ3Translator()
+                            
+                            # Create shared symbolic variables
+                            shared_vars = {}
+                            for param in original_params:
+                                shared_vars[param] = Int(param)
+                            
+                            # Create parameter mapping between original and refactored
+                            param_mapping = {}
+                            if len(original_params) == len(refactored_params):
+                                param_mapping = dict(zip(refactored_params, [shared_vars[p] for p in original_params]))
+                            
+                            logger.info("Translating functions to Z3 expressions")
+                            expr1 = translator1.translate(original_code, shared_vars)
+                            expr2 = translator2.translate(refactored_code, param_mapping)
+                            
+                            logger.info("Verifying with Z3")
+                            z3_result = Z3Verifier.verify_equivalence(expr1, expr2)
+                            end_time = time.time()
+                            
+                            logger.info(f"Z3 verification completed in {end_time - start_time:.2f} seconds")
+                            logger.info(f"Z3 verification result: {z3_result}")
+                            
+                            results["z3_verification"] = z3_result
+                            results["verification_steps"].append("z3")
+                        except Exception as e:
+                            logger.error(f"Z3 verification error: {e}")
+                            logger.error(f"Z3 verification traceback: {traceback.format_exc()}")
+                            results["z3_verification"] = {"error": str(e)}
+                        
+                        # CrossHair verification
+                        logger.info("Starting CrossHair verification")
+                        try:
+                            start_time = time.time()
+                            logger.info("Generating property function for CrossHair")
+                            property_func = CrossHairVerifier.generate_property_function(
+                                original_func, 
+                                refactored_func,
+                                original_params
+                            )
+                            
+                            logger.info("Running CrossHair analysis")
+                            crosshair_results = CrossHairVerifier.analyze_with_crosshair(property_func)
+                            end_time = time.time()
+                            
+                            logger.info(f"CrossHair verification completed in {end_time - start_time:.2f} seconds")
+                            logger.info(f"CrossHair verification found {len(crosshair_results)} issues")
+                            
+                            if crosshair_results:
+                                logger.info(f"First CrossHair issue: {crosshair_results[0]}")
+                            
+                            results["crosshair_verification"] = crosshair_results
+                            results["verification_steps"].append("crosshair")
+                        except Exception as e:
+                            logger.error(f"CrossHair verification error: {e}")
+                            logger.error(f"CrossHair verification traceback: {traceback.format_exc()}")
+                            results["crosshair_verification"] = {"error": str(e)}
+                    except Exception as e:
+                        logger.error(f"Function-specific verification error: {e}")
+                        logger.error(f"Function verification traceback: {traceback.format_exc()}")
+                        # If more specific verification methods fail, rely on runtime verification
+                
+                # Determine overall equivalence based on available results
+                logger.info("Determining overall equivalence")
+                
+                if has_helper_functions:
+                    # For code with helper functions, rely primarily on runtime testing
+                    logger.info("Code has helper functions, relying on runtime verification only")
+                    results["equivalent"] = runtime_results.get("equivalent", False)
+                else:
+                    # For simple code, consider all methods
+                    z3_equivalent = results["z3_verification"].get("equivalent", False) if isinstance(results["z3_verification"], dict) else False
+                    crosshair_failed = len(results["crosshair_verification"]) > 0 if isinstance(results["crosshair_verification"], list) else True
+                    runtime_equivalent = runtime_results.get("equivalent", False)
+                    
+                    logger.info(f"Z3 verification says equivalent: {z3_equivalent}")
+                    logger.info(f"CrossHair verification found issues: {crosshair_failed}")
+                    logger.info(f"Runtime testing says equivalent: {runtime_equivalent}")
+                    
+                    # If Z3 verification passed OR runtime testing passed and CrossHair didn't find issues
+                    results["equivalent"] = z3_equivalent or (runtime_equivalent and not crosshair_failed)
+                    logger.info(f"Final equivalence determination: {results['equivalent']}")
             except Exception as e:
-                print(f"Z3 verification error: {e}")
-                results["z3_verification"] = {"error": str(e)}
-            
-            # CrossHair verification
-            try:
-                property_func = CrossHairVerifier.generate_property_function(
-                    original_func, 
-                    refactored_func,
-                    original_params
-                )
+                logger.error(f"Runtime verification error: {e}")
+                logger.error(f"Runtime verification traceback: {traceback.format_exc()}")
+                results["runtime_verification"] = {"error": str(e)}
                 
-                crosshair_results = CrossHairVerifier.analyze_with_crosshair(property_func)
-                results["crosshair_verification"] = crosshair_results
-            except Exception as e:
-                print(f"CrossHair verification error: {e}")
-                results["crosshair_verification"] = {"error": str(e)}
-            
-            # Determine overall equivalence based on available results
-            z3_equivalent = results["z3_verification"].get("equivalent", False) if isinstance(results["z3_verification"], dict) else False
-            crosshair_failed = len(results["crosshair_verification"]) > 0 if isinstance(results["crosshair_verification"], list) else True
-            
-            results["equivalent"] = z3_equivalent and not crosshair_failed
-            
+                # Try to fall back to other methods if runtime testing fails
+                if not has_helper_functions:
+                    logger.info("Runtime verification failed, falling back to other methods")
+                    z3_equivalent = results["z3_verification"].get("equivalent", False) if isinstance(results["z3_verification"], dict) else False
+                    crosshair_failed = len(results["crosshair_verification"]) > 0 if isinstance(results["crosshair_verification"], list) else True
+                    results["equivalent"] = z3_equivalent and not crosshair_failed
+                    logger.info(f"Fallback equivalence determination: {results['equivalent']}")
         except Exception as e:
+            logger.error(f"Overall verification error: {e}")
+            logger.error(f"Verification traceback: {traceback.format_exc()}")
             results["error"] = str(e)
-            traceback.print_exc()
-            
+        
+        logger.info(f"Verification completed. Steps performed: {results['verification_steps']}")
+        logger.info(f"Final result: {results['equivalent']}")
+        
         return results
+    
     def refactor_with_feedback_loop(self, original_code: str, 
                                   refactoring_strategy: str = "optimize_for_readability",
                                   max_iterations: int = 3) -> Dict:
         """Refactor code and verify in a feedback loop until equivalence is achieved"""
-        if not self.llm:
-            raise ValueError("LLM not configured. Please provide LLM configuration.")
         
         iterations = []
         refactored_code = None
@@ -787,7 +1025,7 @@ class RefactoringEngine:
                 Return only the Python code without any explanation.
                 """
                 
-                refactored_code = self.llm.generate_code(prompt)
+                refactored_code = query_llama3(prompt)
                 refactored_code = re.sub(r'```python|```', '', refactored_code).strip()
             
             print(f"Generated refactored code:")
@@ -836,7 +1074,6 @@ def get_function_from_code(code: str, func_name: str):
 def extract_code_block(text: str) -> str:
     """Extract code from markdown-style code blocks"""
     # First try to find a standard markdown code block
-    print("cleaning code")
     pattern = r'```(?:python)?\s*(.*?)\s*```'
     match = re.search(pattern, text, re.DOTALL)
     if match:
@@ -852,150 +1089,3 @@ def extract_code_block(text: str) -> str:
     # If no opening markers found at all, just strip and return the text
     return text.strip()
 
-# ===============================================
-# Usage and Examples
-# ===============================================
-
-def simple_example():
-    """Simple example using only Z3 and CrossHair without LLM integration"""
-    func1 = """
-def add(x, y):
-    return x + y
-"""
-    func2 = """
-def add_refactored(a, b):
-    return a + b
-"""
-
-    translator1 = PythonToZ3Translator()
-    translator2 = PythonToZ3Translator()
-    shared_vars = {'x': Int('x'), 'y': Int('y')}
-
-    expr1 = translator1.translate(func1, shared_vars)
-    expr2 = translator2.translate(func2, {'a': shared_vars['x'], 'b': shared_vars['y']})
-
-    # Z3 verification
-    z3_result = Z3Verifier.verify_equivalence(expr1, expr2)
-    print("Z3 Verification Result:", z3_result)
-    
-    # CrossHair verification
-    f1 = get_function_from_code(func1, "add")
-    f2 = get_function_from_code(func2, "add_refactored")
-    
-    property_func = CrossHairVerifier.generate_property_function(
-        f1, f2, ["x", "y"]
-    )
-    
-    crosshair_results = CrossHairVerifier.analyze_with_crosshair(property_func)
-    print("\nCrossHair Verification Results:", crosshair_results)
-
-def complex_example_with_llm():
-    """Example with LLM integration for refactoring and feedback loop"""
-    # Configure LLM using Ollama
-    llm_config = LLMConfig(
-        provider=LLMProvider.OLLAMA,
-        model_name="llama4",  # or whatever model you're using with Ollama
-        temperature=0.2,
-        api_url="http://localhost:11434/api/generate"  # adjust this URL if needed
-    )
-    
-    engine = RefactoringEngine(llm_config)
-    
-    # Example function to refactor
-    original_code = """
-def calculate_statistics(numbers):
-    total = 0
-    for num in numbers:
-        total += num
-    mean = total / len(numbers)
-    
-    variance = 0
-    for num in numbers:
-        variance += (num - mean) ** 2
-    variance = variance / len(numbers)
-    
-    std_dev = variance ** 0.5
-    
-    return mean, variance, std_dev
-"""
-    
-    results = engine.refactor_with_feedback_loop(
-        original_code=original_code,
-        refactoring_strategy="optimize_for_performance",
-        max_iterations=3
-    )
-    
-    print("\nFinal Results:")
-    print(f"Equivalent: {results['equivalent']}")
-    print(f"Iterations performed: {results['iterations_performed']}")
-    print("\nFinal refactored code:")
-    print(results["final_refactored_code"])
-
-# Using your existing query_llama3 function directly
-def integrate_with_existing_llm_function(original_code: str, max_iterations: int = 3):
-    """Using the existing query_llama3 function with our refactoring system"""
-    import requests  # ensure requests is imported
-    
-    # Define the Ollama API URL (update as needed)
-    OLLAMA_API_URL = "http://localhost:11434/api/generate" 
-    
-    def query_llama3(prompt: str) -> str:
-        payload = {
-            "model": "llama4",
-            "prompt": prompt,
-            "stream": False
-        }
-        headers = {"Content-Type": "application/json"}
-        response = requests.post(OLLAMA_API_URL, json=payload, headers=headers)
-        response_json = response.json()
-        
-        return response_json["response"]
-    
-    # Create a simple wrapper class that uses your existing function
-    class LlamaAdapter:
-        def generate_code(self, prompt: str) -> str:
-            return query_llama3(prompt)
-        
-        def analyze_verification_results(self, original_code: str, refactored_code: str, 
-                                        verification_results: Dict) -> str:
-            prompt = f"""
-            I need help analyzing the results of code equivalence verification.
-            
-            Original code:
-            ```python
-            {original_code}
-            ```
-            
-            Refactored code:
-            ```python
-            {refactored_code}
-            ```
-            
-            Verification results:
-            {json.dumps(verification_results, indent=2)}
-            
-            Please analyze these results and provide:
-            1. An explanation of why the verification failed (if it did)
-            2. Specific suggestions for fixing the refactored code
-            3. Any edge cases or assumptions that might need consideration
-            
-            Return your response in a clear, structured format.
-            """
-            
-            return query_llama3(prompt)
-    
-    # Create a modified RefactoringEngine that uses our adapter
-    class CustomRefactoringEngine(RefactoringEngine):
-        def __init__(self):
-            self.llm = LlamaAdapter()
-    
-    # Use the custom engine
-    engine = CustomRefactoringEngine()
-    results = engine.refactor_with_feedback_loop(
-        original_code=original_code,
-        refactoring_strategy="optimize_for_readability",
-        max_iterations=max_iterations
-    )
-    
-    return results
-    

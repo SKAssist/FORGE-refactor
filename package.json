@@ -1,22 +1,42 @@
 {
-  "activationEvents": [
-    "onCommand:forge.refactorWithVerification",
-    "onCommand:forge.crossFileChange",
-  ],
-  "contributes": {
-    "commands": [
-      
-      {
-        "command": "forge.refactorWithVerification",
-        "title": "FORGE: Refactor with Formal Verification"
-      },
-      {
-        "command": "forge.crossFileChange",
-        "title": "FORGE: Apply Multi-file Code Change"
-      }
-    ]
-  },
+  "name": "llama-refactor-extension",
+  "displayName": "LLaMA Refactor Extension",
+  "description": "Refactor selected Python code using LLaMA and verify it across files",
+  "version": "0.0.1",
   "engines": {
     "vscode": "^1.80.0"
+  },
+  "main": "./out/extension.js",
+  "scripts": {
+    "compile": "tsc -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.80.0",
+    "@vscode/test-electron": "^2.3.0",
+    "typescript": "^5.0.0"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "llamaRefactor.refactorSelection",
+        "title": "Refactor with LLaMA"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "llamaRefactor.refactorSelection",
+          "when": "editorHasSelection",
+          "group": "navigation"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "llamaRefactor.refactorSelection",
+          "when": "editorHasSelection"
+        }
+      ]
+    }
   }
 }

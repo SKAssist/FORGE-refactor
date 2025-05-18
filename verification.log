@@ -1,0 +1,134 @@
+2025-05-18 00:46:30,122 - verification_system - INFO - Starting verification process
+2025-05-18 00:46:30,122 - verification_system - INFO - Extracting functions from code
+2025-05-18 00:46:30,123 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 00:46:30,123 - verification_system - INFO - Found 4 functions in refactored code
+2025-05-18 00:46:30,123 - verification_system - INFO - Detected helper functions in refactored code
+2025-05-18 00:46:30,123 - verification_system - INFO - Starting runtime verification
+2025-05-18 00:46:30,123 - verification_system - ERROR - Runtime verification error: name 'time' is not defined
+2025-05-18 00:46:30,125 - verification_system - ERROR - Runtime verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/python-z3/refactor_verification_system.py", line 839, in verify_refactoring
+    start_time = time.time()
+                 ^^^^
+NameError: name 'time' is not defined. Did you forget to import 'time'
+
+2025-05-18 00:46:30,125 - verification_system - INFO - Verification completed. Steps performed: []
+2025-05-18 00:46:30,125 - verification_system - INFO - Final result: False
+2025-05-18 00:48:24,123 - verification_system - INFO - Starting verification process
+2025-05-18 00:48:24,123 - verification_system - INFO - Extracting functions from code
+2025-05-18 00:48:24,124 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 00:48:24,124 - verification_system - INFO - Found 6 functions in refactored code
+2025-05-18 00:48:24,124 - verification_system - INFO - Detected helper functions in refactored code
+2025-05-18 00:48:24,124 - verification_system - INFO - Starting runtime verification
+2025-05-18 00:48:24,127 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 00:48:24,127 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 00:48:24,127 - verification_system - INFO - Runtime verification failures: 22
+2025-05-18 00:48:24,127 - verification_system - INFO - First failure example: {'inputs': [17], 'original_output': 'True', 'refactored_output': 'False'}
+2025-05-18 00:48:24,127 - verification_system - INFO - Determining overall equivalence
+2025-05-18 00:48:24,127 - verification_system - INFO - Code has helper functions, relying on runtime verification only
+2025-05-18 00:48:24,127 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 00:48:24,127 - verification_system - INFO - Final result: False
+2025-05-18 00:53:24,354 - verification_system - INFO - Starting verification process
+2025-05-18 00:53:24,354 - verification_system - INFO - Extracting functions from code
+2025-05-18 00:53:24,354 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 00:53:24,354 - verification_system - INFO - Found 6 functions in refactored code
+2025-05-18 00:53:24,355 - verification_system - INFO - Detected helper functions in refactored code
+2025-05-18 00:53:24,355 - verification_system - INFO - Starting runtime verification
+2025-05-18 00:53:24,356 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 00:53:24,356 - verification_system - INFO - Runtime verification result: equivalent=True
+2025-05-18 00:53:24,356 - verification_system - INFO - Determining overall equivalence
+2025-05-18 00:53:24,356 - verification_system - INFO - Code has helper functions, relying on runtime verification only
+2025-05-18 00:53:24,356 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 00:53:24,356 - verification_system - INFO - Final result: True
+2025-05-18 01:02:08,763 - verification_system - INFO - Starting verification process
+2025-05-18 01:02:08,763 - verification_system - INFO - Extracting functions from code
+2025-05-18 01:02:08,764 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 01:02:08,764 - verification_system - INFO - Found 6 functions in refactored code
+2025-05-18 01:02:08,764 - verification_system - INFO - Detected helper functions in refactored code
+2025-05-18 01:02:08,764 - verification_system - INFO - Starting runtime verification
+2025-05-18 01:02:08,766 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 01:02:08,766 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 01:02:08,766 - verification_system - INFO - Runtime verification failures: 16
+2025-05-18 01:02:08,766 - verification_system - INFO - First failure example: {'inputs': [-59], 'original_output': 'False', 'refactored_output': 'True'}
+2025-05-18 01:02:08,766 - verification_system - INFO - Determining overall equivalence
+2025-05-18 01:02:08,766 - verification_system - INFO - Code has helper functions, relying on runtime verification only
+2025-05-18 01:02:08,766 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 01:02:08,766 - verification_system - INFO - Final result: False
+2025-05-18 01:03:52,749 - verification_system - INFO - Starting verification process
+2025-05-18 01:03:52,749 - verification_system - INFO - Extracting functions from code
+2025-05-18 01:03:52,750 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 01:03:52,750 - verification_system - INFO - Found 3 functions in refactored code
+2025-05-18 01:03:52,750 - verification_system - INFO - Detected helper functions in refactored code
+2025-05-18 01:03:52,750 - verification_system - INFO - Starting runtime verification
+2025-05-18 01:03:52,751 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 01:03:52,752 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 01:03:52,752 - verification_system - INFO - Runtime verification failures: 24
+2025-05-18 01:03:52,752 - verification_system - INFO - First failure example: {'inputs': [91], 'error': "name 'math' is not defined"}
+2025-05-18 01:03:52,752 - verification_system - INFO - Determining overall equivalence
+2025-05-18 01:03:52,752 - verification_system - INFO - Code has helper functions, relying on runtime verification only
+2025-05-18 01:03:52,752 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 01:03:52,752 - verification_system - INFO - Final result: False
+2025-05-18 01:05:07,491 - verification_system - INFO - Starting verification process
+2025-05-18 01:05:07,491 - verification_system - INFO - Extracting functions from code
+2025-05-18 01:05:07,492 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 01:05:07,492 - verification_system - INFO - Found 4 functions in refactored code
+2025-05-18 01:05:07,492 - verification_system - INFO - Detected helper functions in refactored code
+2025-05-18 01:05:07,492 - verification_system - INFO - Starting runtime verification
+2025-05-18 01:05:07,494 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 01:05:07,494 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 01:05:07,494 - verification_system - INFO - Runtime verification failures: 44
+2025-05-18 01:05:07,494 - verification_system - INFO - First failure example: {'inputs': [-86], 'original_output': 'False', 'refactored_output': 'True'}
+2025-05-18 01:05:07,494 - verification_system - INFO - Determining overall equivalence
+2025-05-18 01:05:07,494 - verification_system - INFO - Code has helper functions, relying on runtime verification only
+2025-05-18 01:05:07,494 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 01:05:07,494 - verification_system - INFO - Final result: False
+2025-05-18 01:08:42,682 - verification_system - INFO - Starting verification process
+2025-05-18 01:08:42,683 - verification_system - INFO - Extracting functions from code
+2025-05-18 01:08:42,683 - verification_system - ERROR - Overall verification error: invalid syntax (<unknown>, line 1)
+2025-05-18 01:08:42,684 - verification_system - ERROR - Verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/python-z3/refactor_verification_system.py", line 829, in verify_refactoring
+    refactored_functions = ASTAnalyzer.extract_all_functions(refactored_code)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/python-z3/refactor_verification_system.py", line 136, in extract_all_functions
+    tree = ast.parse(code)
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 52, in parse
+    return compile(source, filename, mode, flags,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<unknown>", line 1
+    Here is the corrected version of the refactored code:
+                ^^^^^^^^^
+SyntaxError: invalid syntax
+
+2025-05-18 01:08:42,684 - verification_system - INFO - Verification completed. Steps performed: []
+2025-05-18 01:08:42,684 - verification_system - INFO - Final result: False
+2025-05-18 01:10:59,177 - verification_system - INFO - Starting verification process
+2025-05-18 01:10:59,178 - verification_system - INFO - Extracting functions from code
+2025-05-18 01:10:59,178 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 01:10:59,178 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 01:10:59,178 - verification_system - INFO - Starting runtime verification
+2025-05-18 01:10:59,179 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 01:10:59,179 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 01:10:59,179 - verification_system - INFO - Runtime verification failures: 8
+2025-05-18 01:10:59,179 - verification_system - INFO - First failure example: {'inputs': [79], 'original_output': 'True', 'refactored_output': 'False'}
+2025-05-18 01:10:59,179 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 01:10:59,179 - verification_system - INFO - Extracting function signatures
+2025-05-18 01:10:59,179 - verification_system - INFO - Original function: is_prime with params ['n']
+2025-05-18 01:10:59,179 - verification_system - INFO - Refactored function: is_prime with params ['n']
+2025-05-18 01:10:59,179 - verification_system - INFO - Loading functions from code
+2025-05-18 01:10:59,180 - verification_system - INFO - Starting Z3 verification
+2025-05-18 01:10:59,180 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 01:10:59,181 - verification_system - INFO - Verifying with Z3
+2025-05-18 01:10:59,183 - verification_system - INFO - Z3 verification completed in 0.00 seconds
+2025-05-18 01:10:59,183 - verification_system - INFO - Z3 verification result: {'equivalent': True, 'status': 'unsat', 'counterexample': None, 'timeout': False, 'error': None}
+2025-05-18 01:10:59,183 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 01:10:59,183 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 01:10:59,183 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 01:10:59,183 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 01:10:59,184 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 01:10:59,184 - verification_system - INFO - Determining overall equivalence
+2025-05-18 01:10:59,184 - verification_system - INFO - Z3 verification says equivalent: True
+2025-05-18 01:10:59,184 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 01:10:59,184 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 01:10:59,184 - verification_system - INFO - Final equivalence determination: True
+2025-05-18 01:10:59,184 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'z3', 'crosshair']
+2025-05-18 01:10:59,184 - verification_system - INFO - Final result: True
