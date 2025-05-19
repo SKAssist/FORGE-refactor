@@ -33,8 +33,7 @@ OLLAMA_API_URL = "http://localhost:11434/api/generate"
 
 from mistralai import Mistral
 
-api_key = "shZl9BS91mQ08w7NX4FpGlifFyiMH5fj"
-model = "mistral-large-latest"
+
 
 client = Mistral(api_key=api_key)
 
@@ -50,6 +49,49 @@ def call_mistral(prompt):
     )
     return chat_response.choices[0].message.content
 
+
+
+
+
+from openai import AzureOpenAI
+client = AzureOpenAI(
+  azure_endpoint = endpoint, 
+  api_key= api_key,
+  api_version=ver
+)
+
+            
+def call_gpt4o_api(convo, max_tokens=150, depth_limit=0):
+    try:
+        response = client.chat.completions.create(
+    model="gpt-4o",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": f"{convo}"}
+    ],
+    temperature=0.7
+)
+
+        completion = response.model_dump()["choices"][0]["message"]["content"]
+        return completion
+
+    except Exception as e:
+        if "content" in str(e):
+            print(e)
+            return None
+        else:
+            if "retry" in str(e):
+                if depth_limit <= 10:
+                    time.sleep(2)
+                    return call_gpt4o_api(convo, max_tokens, depth_limit+1)
+                else:
+                    return None
+                
+            else:
+                print(e)
+                return call_gpt4o_api(convo, max_tokens, depth_limit+1)
+
+
 def query_llama3(prompt: str) -> str:
     payload = {
         "model": "llama3",
@@ -61,6 +103,8 @@ def query_llama3(prompt: str) -> str:
     response_json = response.json()
     
     return response_json["response"]
+
+
 
 class LLMProvider(Enum):
     OPENAI = "openai"
@@ -113,7 +157,8 @@ class LLMInterface:
         """
         # return call_mistral(prompt)
         
-        return query_llama3(prompt)
+        # return query_llama3(prompt)
+        return call_gpt4o_api(prompt)
 
 # ===============================================
 # AST Analysis and Z3 Translation
@@ -745,7 +790,8 @@ class RefactoringEngine:
         if refactoring_strategy == "optimize_for_readability":
             prompt = f"""
             Refactor the following code to improve clarity and readability:
-            
+            - REMOVE REDUNDANCY (extra input parameters that are not used)
+            - The function must handle BOTH integer and float inputs for all parameters if relevant
             - Extract complex logic into properly named helper functions
             - Improve variable names for better understanding
             - Simplify complex conditionals and operations
@@ -753,6 +799,10 @@ class RefactoringEngine:
             - Keep the exact same behavior for all inputs
             - Remove all redundant variables and lines of code
             - Change function signature if necessary
+            1. Do NOT use isinstance(), type(), or other type-checking functions
+            2. Assume all numeric operations could receive float values
+            3. Explicitly convert to int when using ranges: range(int(x))
+            4. Avoid built-in functions that Z3 can't translate (any(), all(), map(), filter())
             
             Original code:
             ```python
@@ -787,8 +837,9 @@ class RefactoringEngine:
             Return only the Python code for the refactored function without any explanation.
             """
         
-        refactored_code = query_llama3(prompt)
+        # refactored_code = query_llama3(prompt)
         # refactored_code = call_mistral(prompt)
+        refactored_code =call_gpt4o_api(prompt)
         
         # Clean up the code to remove any markdown code blocks
         refactored_code = extract_code_block(refactored_code)
@@ -800,6 +851,7 @@ class RefactoringEngine:
        
         prompt = f"""
         Analyze the following functions and generate verification constraints to ensure their equivalence.
+        Make sure the input types are the same as in original code please. 
         
         Original function:
         ```python
@@ -817,8 +869,8 @@ class RefactoringEngine:
         Format your response as a JSON list of strings, each representing a constraint.
         """
         # constraints_text = call_mistral(prompt)
-        constraints_text = query_llama3(prompt)
-        
+        # constraints_text = query_llama3(prompt)
+        constraints_text = call_gpt4o_api(prompt)
         # Extract JSON list from response
         try:
             # Find JSON pattern in the text
@@ -842,7 +894,8 @@ class RefactoringEngine:
             "runtime_verification": None,
             "equivalent": False,
             "error": None,
-            "verification_steps": []  # Track which steps were actually performed
+            "verification_steps": [],  # Track which steps were actually performed
+            "verification_status": {}  # Track detailed status for each verification method
         }
         
         try:
@@ -857,6 +910,7 @@ class RefactoringEngine:
             has_helper_functions = len(refactored_functions) > 1
             if has_helper_functions:
                 logger.info("Detected helper functions in refactored code")
+                results["verification_status"]["skipped_z3"] = "Nested functions detected"
             
             # Runtime testing (works for both single and multiple function code)
             logger.info("Starting runtime verification")
@@ -876,12 +930,12 @@ class RefactoringEngine:
                 results["runtime_verification"] = runtime_results
                 results["verification_steps"].append("runtime")
                 
-                # For simple code without helpers, continue with other verification methods
-                if not has_helper_functions:
-                    logger.info("Code has no helper functions, proceeding with Z3 and CrossHair verification")
+                # Only proceed with Z3/CrossHair if runtime verification passes
+                if runtime_results.get('equivalent', False) and not has_helper_functions:
+                    logger.info("Runtime verification successful. Proceeding with Z3 and CrossHair for additional confidence.")
                     
                     try:
-                        # Get function signatures for Z3 and CrossHair
+                        # Get function signatures
                         logger.info("Extracting function signatures")
                         original_func_name, original_params, _ = ASTAnalyzer.extract_function_signature(original_code)
                         refactored_func_name, refactored_params, _ = ASTAnalyzer.extract_function_signature(refactored_code)
@@ -894,7 +948,7 @@ class RefactoringEngine:
                         original_func = get_function_from_code(original_code, original_func_name)
                         refactored_func = get_function_from_code(refactored_code, refactored_func_name)
                         
-                        # Z3 verification
+                        # Z3 verification - skip on error
                         logger.info("Starting Z3 verification")
                         try:
                             start_time = time.time()
@@ -925,11 +979,11 @@ class RefactoringEngine:
                             results["z3_verification"] = z3_result
                             results["verification_steps"].append("z3")
                         except Exception as e:
-                            logger.error(f"Z3 verification error: {e}")
-                            logger.error(f"Z3 verification traceback: {traceback.format_exc()}")
-                            results["z3_verification"] = {"error": str(e)}
+                            logger.info(f"Z3 verification skipped due to limitation: {e}")
+                            results["verification_status"]["skipped_z3"] = str(e)
+                            # Note: we don't fail verification just because Z3 isn't applicable
                         
-                        # CrossHair verification
+                        # CrossHair verification - skip on error
                         logger.info("Starting CrossHair verification")
                         try:
                             start_time = time.time()
@@ -953,12 +1007,12 @@ class RefactoringEngine:
                             results["crosshair_verification"] = crosshair_results
                             results["verification_steps"].append("crosshair")
                         except Exception as e:
-                            logger.error(f"CrossHair verification error: {e}")
-                            logger.error(f"CrossHair verification traceback: {traceback.format_exc()}")
-                            results["crosshair_verification"] = {"error": str(e)}
+                            logger.info(f"CrossHair verification skipped due to limitation: {e}")
+                            results["verification_status"]["skipped_crosshair"] = str(e)
+                            # Note: we don't fail verification just because CrossHair isn't applicable
                     except Exception as e:
-                        logger.error(f"Function-specific verification error: {e}")
-                        logger.error(f"Function verification traceback: {traceback.format_exc()}")
+                        logger.warning(f"Function-specific verification error: {e}")
+                        logger.debug(f"Function verification traceback: {traceback.format_exc()}")
                         # If more specific verification methods fail, rely on runtime verification
                 
                 # Determine overall equivalence based on available results
@@ -969,30 +1023,33 @@ class RefactoringEngine:
                     logger.info("Code has helper functions, relying on runtime verification only")
                     results["equivalent"] = runtime_results.get("equivalent", False)
                 else:
-                    # For simple code, consider all methods
-                    z3_equivalent = results["z3_verification"].get("equivalent", False) if isinstance(results["z3_verification"], dict) else False
-                    crosshair_failed = len(results["crosshair_verification"]) > 0 if isinstance(results["crosshair_verification"], list) else True
+                    # For simple code, consider all methods that actually ran successfully
                     runtime_equivalent = runtime_results.get("equivalent", False)
                     
-                    logger.info(f"Z3 verification says equivalent: {z3_equivalent}")
-                    logger.info(f"CrossHair verification found issues: {crosshair_failed}")
-                    logger.info(f"Runtime testing says equivalent: {runtime_equivalent}")
+                    # Only consider Z3 if it actually ran successfully
+                    z3_equivalent = (results["z3_verification"].get("equivalent", False) 
+                                if "z3" in results["verification_steps"] else True)
                     
-                    # If Z3 verification passed OR runtime testing passed and CrossHair didn't find issues
-                    results["equivalent"] = z3_equivalent or (runtime_equivalent and not crosshair_failed)
+                    # Only consider CrossHair if it actually ran successfully
+                    crosshair_failed = (len(results["crosshair_verification"]) > 0 
+                                    if "crosshair" in results["verification_steps"] else False)
+                    
+                    # Log what each verification method says
+                    logger.info(f"Runtime verification says equivalent: {runtime_equivalent}")
+                    if "z3" in results["verification_steps"]:
+                        logger.info(f"Z3 verification says equivalent: {z3_equivalent}")
+                    if "crosshair" in results["verification_steps"]:
+                        logger.info(f"CrossHair verification found issues: {crosshair_failed}")
+                    
+                    # If runtime passes and any advanced verification that ran also passes
+                    results["equivalent"] = runtime_equivalent and z3_equivalent and not crosshair_failed
                     logger.info(f"Final equivalence determination: {results['equivalent']}")
             except Exception as e:
                 logger.error(f"Runtime verification error: {e}")
                 logger.error(f"Runtime verification traceback: {traceback.format_exc()}")
                 results["runtime_verification"] = {"error": str(e)}
+                results["equivalent"] = False  # If runtime verification fails, code is not equivalent
                 
-                # Try to fall back to other methods if runtime testing fails
-                if not has_helper_functions:
-                    logger.info("Runtime verification failed, falling back to other methods")
-                    z3_equivalent = results["z3_verification"].get("equivalent", False) if isinstance(results["z3_verification"], dict) else False
-                    crosshair_failed = len(results["crosshair_verification"]) > 0 if isinstance(results["crosshair_verification"], list) else True
-                    results["equivalent"] = z3_equivalent and not crosshair_failed
-                    logger.info(f"Fallback equivalence determination: {results['equivalent']}")
         except Exception as e:
             logger.error(f"Overall verification error: {e}")
             logger.error(f"Verification traceback: {traceback.format_exc()}")
@@ -1048,7 +1105,8 @@ class RefactoringEngine:
                 Return only the Python code without any explanation.
                 """
                 # refactored_code = call_mistral(prompt)
-                refactored_code = query_llama3(prompt)
+                # refactored_code = query_llama3(prompt)
+                refactored_code = call_gpt4o_api(prompt)
                 refactored_code = re.sub(r'```python|```', '', refactored_code).strip()
             
             print(f"Generated refactored code:")

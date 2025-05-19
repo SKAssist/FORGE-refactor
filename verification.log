@@ -568,3 +568,1813 @@ NotImplementedError: Function call to isinstance not supported
 2025-05-18 02:12:35,635 - verification_system - INFO - Code has helper functions, relying on runtime verification only
 2025-05-18 02:12:35,636 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
 2025-05-18 02:12:35,636 - verification_system - INFO - Final result: True
+2025-05-18 02:47:47,805 - verification_system - INFO - Starting verification process
+2025-05-18 02:47:47,805 - verification_system - INFO - Extracting functions from code
+2025-05-18 02:47:47,806 - verification_system - INFO - Found 4 functions in original code
+2025-05-18 02:47:47,806 - verification_system - INFO - Found 5 functions in refactored code
+2025-05-18 02:47:47,806 - verification_system - INFO - Detected helper functions in refactored code
+2025-05-18 02:47:47,806 - verification_system - INFO - Starting runtime verification
+2025-05-18 02:47:47,808 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 02:47:47,808 - verification_system - INFO - Runtime verification result: equivalent=True
+2025-05-18 02:47:47,808 - verification_system - INFO - Determining overall equivalence
+2025-05-18 02:47:47,808 - verification_system - INFO - Code has helper functions, relying on runtime verification only
+2025-05-18 02:47:47,808 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 02:47:47,809 - verification_system - INFO - Final result: True
+2025-05-18 02:53:47,698 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:48,282 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:48,877 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:49,175 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:49,739 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:50,320 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:50,619 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:50,969 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:51,279 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:51,862 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:52,432 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:52,895 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:53,192 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:53,778 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:54,411 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:54,973 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:55,545 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:56,116 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:56,705 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:57,003 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:57,306 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:57,655 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:57,962 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:58,282 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:58,585 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:53:58,889 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 400 Bad Request"
+2025-05-18 02:55:48,380 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 02:55:48,394 - verification_system - INFO - Starting verification process
+2025-05-18 02:55:48,395 - verification_system - INFO - Extracting functions from code
+2025-05-18 02:55:48,396 - verification_system - INFO - Found 5 functions in original code
+2025-05-18 02:55:48,396 - verification_system - INFO - Found 2 functions in refactored code
+2025-05-18 02:55:48,396 - verification_system - INFO - Detected helper functions in refactored code
+2025-05-18 02:55:48,396 - verification_system - INFO - Starting runtime verification
+2025-05-18 02:55:48,397 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 02:55:48,397 - verification_system - INFO - Runtime verification result: equivalent=True
+2025-05-18 02:55:48,398 - verification_system - INFO - Determining overall equivalence
+2025-05-18 02:55:48,398 - verification_system - INFO - Code has helper functions, relying on runtime verification only
+2025-05-18 02:55:48,398 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 02:55:48,398 - verification_system - INFO - Final result: True
+2025-05-18 02:58:13,410 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 02:58:13,420 - verification_system - INFO - Starting verification process
+2025-05-18 02:58:13,420 - verification_system - INFO - Extracting functions from code
+2025-05-18 02:58:13,421 - verification_system - INFO - Found 2 functions in original code
+2025-05-18 02:58:13,421 - verification_system - INFO - Found 2 functions in refactored code
+2025-05-18 02:58:13,421 - verification_system - INFO - Detected helper functions in refactored code
+2025-05-18 02:58:13,421 - verification_system - INFO - Starting runtime verification
+2025-05-18 02:58:13,423 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 02:58:13,423 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 02:58:13,423 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 02:58:13,423 - verification_system - INFO - First failure example: {'inputs': [-7, -38.20830360513714], 'error': 'is_prime() takes 1 positional argument but 2 were given'}
+2025-05-18 02:58:13,423 - verification_system - INFO - Determining overall equivalence
+2025-05-18 02:58:13,423 - verification_system - INFO - Code has helper functions, relying on runtime verification only
+2025-05-18 02:58:13,423 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 02:58:13,423 - verification_system - INFO - Final result: False
+2025-05-18 02:58:30,153 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 02:58:36,506 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 02:58:36,508 - verification_system - INFO - Starting verification process
+2025-05-18 02:58:36,508 - verification_system - INFO - Extracting functions from code
+2025-05-18 02:58:36,509 - verification_system - INFO - Found 2 functions in original code
+2025-05-18 02:58:36,509 - verification_system - INFO - Found 2 functions in refactored code
+2025-05-18 02:58:36,509 - verification_system - INFO - Detected helper functions in refactored code
+2025-05-18 02:58:36,509 - verification_system - INFO - Starting runtime verification
+2025-05-18 02:58:36,511 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 02:58:36,511 - verification_system - INFO - Runtime verification result: equivalent=True
+2025-05-18 02:58:36,511 - verification_system - INFO - Determining overall equivalence
+2025-05-18 02:58:36,511 - verification_system - INFO - Code has helper functions, relying on runtime verification only
+2025-05-18 02:58:36,511 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 02:58:36,512 - verification_system - INFO - Final result: True
+2025-05-18 03:00:09,851 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 03:00:09,867 - verification_system - INFO - Starting verification process
+2025-05-18 03:00:09,867 - verification_system - INFO - Extracting functions from code
+2025-05-18 03:00:09,868 - verification_system - INFO - Found 2 functions in original code
+2025-05-18 03:00:09,868 - verification_system - INFO - Found 2 functions in refactored code
+2025-05-18 03:00:09,869 - verification_system - INFO - Detected helper functions in refactored code
+2025-05-18 03:00:09,869 - verification_system - INFO - Starting runtime verification
+2025-05-18 03:00:09,870 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 03:00:09,871 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 03:00:09,871 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 03:00:09,871 - verification_system - INFO - First failure example: {'inputs': [-24, -15.660790933488471], 'error': 'is_prime() takes 1 positional argument but 2 were given'}
+2025-05-18 03:00:09,871 - verification_system - INFO - Determining overall equivalence
+2025-05-18 03:00:09,871 - verification_system - INFO - Code has helper functions, relying on runtime verification only
+2025-05-18 03:00:09,871 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 03:00:09,872 - verification_system - INFO - Final result: False
+2025-05-18 03:00:32,611 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 03:00:39,505 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 03:00:39,510 - verification_system - INFO - Starting verification process
+2025-05-18 03:00:39,510 - verification_system - INFO - Extracting functions from code
+2025-05-18 03:00:39,511 - verification_system - INFO - Found 2 functions in original code
+2025-05-18 03:00:39,511 - verification_system - INFO - Found 2 functions in refactored code
+2025-05-18 03:00:39,512 - verification_system - INFO - Detected helper functions in refactored code
+2025-05-18 03:00:39,512 - verification_system - INFO - Starting runtime verification
+2025-05-18 03:00:39,514 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 03:00:39,514 - verification_system - INFO - Runtime verification result: equivalent=True
+2025-05-18 03:00:39,514 - verification_system - INFO - Determining overall equivalence
+2025-05-18 03:00:39,514 - verification_system - INFO - Code has helper functions, relying on runtime verification only
+2025-05-18 03:00:39,514 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 03:00:39,514 - verification_system - INFO - Final result: True
+2025-05-18 06:08:51,846 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:08:51,852 - verification_system - INFO - Starting verification process
+2025-05-18 06:08:51,853 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:08:51,853 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:08:51,853 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:08:51,853 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:08:51,855 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:08:51,855 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:08:51,855 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 06:08:51,855 - verification_system - INFO - First failure example: {'inputs': [-86, 44, 77, -5], 'error': "'int' object is not subscriptable"}
+2025-05-18 06:08:51,855 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 06:08:51,855 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:08:51,856 - verification_system - INFO - Original function: checkDiscount with params ['u', 't', 'h', 'd']
+2025-05-18 06:08:51,856 - verification_system - INFO - Refactored function: check_discount with params ['user', 'total', 'holiday', 'day_type']
+2025-05-18 06:08:51,856 - verification_system - INFO - Loading functions from code
+2025-05-18 06:08:51,857 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:08:51,857 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:08:51,857 - verification_system - ERROR - Z3 verification error: 'ArithRef' object is not subscriptable
+2025-05-18 06:08:51,858 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 962, in verify_refactoring
+    expr1 = translator1.translate(original_code, shared_vars)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 456, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 519, in visit_Compare
+    left = self.visit(node.left)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 605, in visit_Subscript
+    return self.vars[var_name][index]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^
+TypeError: 'ArithRef' object is not subscriptable
+
+2025-05-18 06:08:51,858 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:08:51,859 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:08:51,859 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:08:51,859 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:08:51,859 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:08:51,859 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:08:51,859 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 06:08:51,859 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:08:51,860 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 06:08:51,860 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:08:51,860 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:08:51,860 - verification_system - INFO - Final result: False
+2025-05-18 06:09:49,411 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:10:06,837 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:10:06,838 - verification_system - INFO - Starting verification process
+2025-05-18 06:10:06,838 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:10:06,839 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:10:06,839 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:10:06,839 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:10:06,841 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:10:06,841 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:10:06,841 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 06:10:06,841 - verification_system - INFO - First failure example: {'inputs': [49, -82, 24, 31], 'error': "'int' object is not subscriptable"}
+2025-05-18 06:10:06,841 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 06:10:06,841 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:10:06,842 - verification_system - INFO - Original function: checkDiscount with params ['u', 't', 'h', 'd']
+2025-05-18 06:10:06,842 - verification_system - INFO - Refactored function: check_discount with params ['user', 'total', 'holiday', 'day_type']
+2025-05-18 06:10:06,842 - verification_system - INFO - Loading functions from code
+2025-05-18 06:10:06,843 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:10:06,843 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:10:06,843 - verification_system - ERROR - Z3 verification error: 'ArithRef' object is not subscriptable
+2025-05-18 06:10:06,844 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 962, in verify_refactoring
+    expr1 = translator1.translate(original_code, shared_vars)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 456, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 519, in visit_Compare
+    left = self.visit(node.left)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 605, in visit_Subscript
+    return self.vars[var_name][index]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^
+TypeError: 'ArithRef' object is not subscriptable
+
+2025-05-18 06:10:06,844 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:10:06,844 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:10:06,844 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:10:06,845 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:10:06,845 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:10:06,845 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:10:06,845 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 06:10:06,845 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:10:06,845 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 06:10:06,845 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:10:06,845 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:10:06,845 - verification_system - INFO - Final result: False
+2025-05-18 06:10:34,759 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:10:46,987 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:10:46,988 - verification_system - INFO - Starting verification process
+2025-05-18 06:10:46,988 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:10:46,988 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:10:46,988 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:10:46,988 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:10:46,990 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:10:46,990 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:10:46,990 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 06:10:46,990 - verification_system - INFO - First failure example: {'inputs': [-15, 17, 51, -35], 'error': "'int' object is not subscriptable"}
+2025-05-18 06:10:46,990 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 06:10:46,991 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:10:46,991 - verification_system - INFO - Original function: checkDiscount with params ['u', 't', 'h', 'd']
+2025-05-18 06:10:46,991 - verification_system - INFO - Refactored function: check_discount with params ['user', 'total', 'holiday', 'day_type']
+2025-05-18 06:10:46,991 - verification_system - INFO - Loading functions from code
+2025-05-18 06:10:46,992 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:10:46,992 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:10:46,992 - verification_system - ERROR - Z3 verification error: 'ArithRef' object is not subscriptable
+2025-05-18 06:10:46,993 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 962, in verify_refactoring
+    expr1 = translator1.translate(original_code, shared_vars)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 456, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 519, in visit_Compare
+    left = self.visit(node.left)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 605, in visit_Subscript
+    return self.vars[var_name][index]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^
+TypeError: 'ArithRef' object is not subscriptable
+
+2025-05-18 06:10:46,993 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:10:46,993 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:10:46,993 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:10:46,994 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:10:46,994 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:10:46,994 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:10:46,994 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 06:10:46,994 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:10:46,994 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 06:10:46,994 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:10:46,994 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:10:46,994 - verification_system - INFO - Final result: False
+2025-05-18 06:11:11,485 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:11:30,743 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:11:30,744 - verification_system - INFO - Starting verification process
+2025-05-18 06:11:30,744 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:11:30,745 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:11:30,745 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:11:30,745 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:11:30,747 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:11:30,747 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:11:30,747 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 06:11:30,747 - verification_system - INFO - First failure example: {'inputs': [29, 89, -70, 82], 'error': "'int' object is not subscriptable"}
+2025-05-18 06:11:30,747 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 06:11:30,747 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:11:30,748 - verification_system - INFO - Original function: checkDiscount with params ['u', 't', 'h', 'd']
+2025-05-18 06:11:30,748 - verification_system - INFO - Refactored function: check_discount with params ['user', 'total', 'holiday', 'day_type']
+2025-05-18 06:11:30,748 - verification_system - INFO - Loading functions from code
+2025-05-18 06:11:30,748 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:11:30,748 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:11:30,749 - verification_system - ERROR - Z3 verification error: 'ArithRef' object is not subscriptable
+2025-05-18 06:11:30,749 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 962, in verify_refactoring
+    expr1 = translator1.translate(original_code, shared_vars)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 456, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 519, in visit_Compare
+    left = self.visit(node.left)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 605, in visit_Subscript
+    return self.vars[var_name][index]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^
+TypeError: 'ArithRef' object is not subscriptable
+
+2025-05-18 06:11:30,750 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:11:30,750 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:11:30,750 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:11:30,750 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:11:30,750 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:11:30,750 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:11:30,750 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 06:11:30,750 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:11:30,750 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 06:11:30,751 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:11:30,751 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:11:30,751 - verification_system - INFO - Final result: False
+2025-05-18 06:11:50,192 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:12:00,625 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:12:00,626 - verification_system - INFO - Starting verification process
+2025-05-18 06:12:00,627 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:12:00,627 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:12:00,627 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:12:00,627 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:12:00,629 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:12:00,629 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:12:00,629 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 06:12:00,629 - verification_system - INFO - First failure example: {'inputs': [44, -13, -52, -77], 'error': "'int' object is not subscriptable"}
+2025-05-18 06:12:00,629 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 06:12:00,630 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:12:00,630 - verification_system - INFO - Original function: checkDiscount with params ['u', 't', 'h', 'd']
+2025-05-18 06:12:00,630 - verification_system - INFO - Refactored function: check_discount with params ['user', 'total', 'holiday', 'day_type']
+2025-05-18 06:12:00,630 - verification_system - INFO - Loading functions from code
+2025-05-18 06:12:00,631 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:12:00,631 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:12:00,631 - verification_system - ERROR - Z3 verification error: 'ArithRef' object is not subscriptable
+2025-05-18 06:12:00,632 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 962, in verify_refactoring
+    expr1 = translator1.translate(original_code, shared_vars)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 456, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 519, in visit_Compare
+    left = self.visit(node.left)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 605, in visit_Subscript
+    return self.vars[var_name][index]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^
+TypeError: 'ArithRef' object is not subscriptable
+
+2025-05-18 06:12:00,632 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:12:00,632 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:12:00,632 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:12:00,633 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:12:00,633 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:12:00,633 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:12:00,633 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 06:12:00,633 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:12:00,633 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 06:12:00,633 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:12:00,633 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:12:00,633 - verification_system - INFO - Final result: False
+2025-05-18 06:12:19,641 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:12:29,890 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:12:29,891 - verification_system - INFO - Starting verification process
+2025-05-18 06:12:29,891 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:12:29,891 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:12:29,891 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:12:29,891 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:12:29,893 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:12:29,893 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:12:29,894 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 06:12:29,894 - verification_system - INFO - First failure example: {'inputs': [-83, -66, 90, 94], 'error': "'int' object is not subscriptable"}
+2025-05-18 06:12:29,894 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 06:12:29,894 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:12:29,894 - verification_system - INFO - Original function: checkDiscount with params ['u', 't', 'h', 'd']
+2025-05-18 06:12:29,894 - verification_system - INFO - Refactored function: check_discount with params ['user', 'total', 'holiday', 'day_type']
+2025-05-18 06:12:29,894 - verification_system - INFO - Loading functions from code
+2025-05-18 06:12:29,895 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:12:29,895 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:12:29,895 - verification_system - ERROR - Z3 verification error: 'ArithRef' object is not subscriptable
+2025-05-18 06:12:29,896 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 962, in verify_refactoring
+    expr1 = translator1.translate(original_code, shared_vars)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 456, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 519, in visit_Compare
+    left = self.visit(node.left)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 605, in visit_Subscript
+    return self.vars[var_name][index]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^
+TypeError: 'ArithRef' object is not subscriptable
+
+2025-05-18 06:12:29,896 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:12:29,896 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:12:29,897 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:12:29,897 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:12:29,897 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:12:29,897 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:12:29,897 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 06:12:29,897 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:12:29,897 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 06:12:29,897 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:12:29,897 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:12:29,897 - verification_system - INFO - Final result: False
+2025-05-18 06:12:48,141 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:13:00,634 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:13:00,635 - verification_system - INFO - Starting verification process
+2025-05-18 06:13:00,635 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:13:00,636 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:13:00,636 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:13:00,636 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:13:00,638 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:13:00,638 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:13:00,638 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 06:13:00,638 - verification_system - INFO - First failure example: {'inputs': [-54, 90, 85, 49], 'error': "'int' object is not subscriptable"}
+2025-05-18 06:13:00,638 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 06:13:00,638 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:13:00,639 - verification_system - INFO - Original function: checkDiscount with params ['u', 't', 'h', 'd']
+2025-05-18 06:13:00,639 - verification_system - INFO - Refactored function: check_discount with params ['user', 'total', 'holiday', 'day_type']
+2025-05-18 06:13:00,639 - verification_system - INFO - Loading functions from code
+2025-05-18 06:13:00,639 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:13:00,640 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:13:00,640 - verification_system - ERROR - Z3 verification error: 'ArithRef' object is not subscriptable
+2025-05-18 06:13:00,640 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 962, in verify_refactoring
+    expr1 = translator1.translate(original_code, shared_vars)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 456, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 519, in visit_Compare
+    left = self.visit(node.left)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 605, in visit_Subscript
+    return self.vars[var_name][index]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^
+TypeError: 'ArithRef' object is not subscriptable
+
+2025-05-18 06:13:00,641 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:13:00,641 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:13:00,641 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:13:00,641 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:13:00,641 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:13:00,641 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:13:00,641 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 06:13:00,641 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:13:00,642 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 06:13:00,642 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:13:00,642 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:13:00,642 - verification_system - INFO - Final result: False
+2025-05-18 06:13:26,625 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:13:48,696 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:13:48,697 - verification_system - INFO - Starting verification process
+2025-05-18 06:13:48,697 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:13:48,697 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:13:48,698 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:13:48,698 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:13:48,700 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:13:48,700 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:13:48,700 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 06:13:48,700 - verification_system - INFO - First failure example: {'inputs': [64, -63, -14, -41], 'error': "'int' object is not subscriptable"}
+2025-05-18 06:13:48,700 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 06:13:48,700 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:13:48,701 - verification_system - INFO - Original function: checkDiscount with params ['u', 't', 'h', 'd']
+2025-05-18 06:13:48,701 - verification_system - INFO - Refactored function: check_discount with params ['user', 'total', 'holiday', 'day_type']
+2025-05-18 06:13:48,701 - verification_system - INFO - Loading functions from code
+2025-05-18 06:13:48,701 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:13:48,702 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:13:48,702 - verification_system - ERROR - Z3 verification error: 'ArithRef' object is not subscriptable
+2025-05-18 06:13:48,702 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 962, in verify_refactoring
+    expr1 = translator1.translate(original_code, shared_vars)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 456, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 519, in visit_Compare
+    left = self.visit(node.left)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 605, in visit_Subscript
+    return self.vars[var_name][index]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^
+TypeError: 'ArithRef' object is not subscriptable
+
+2025-05-18 06:13:48,703 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:13:48,703 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:13:48,703 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:13:48,703 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:13:48,703 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:13:48,703 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:13:48,703 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 06:13:48,703 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:13:48,703 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 06:13:48,704 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:13:48,704 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:13:48,704 - verification_system - INFO - Final result: False
+2025-05-18 06:14:14,663 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:14:35,509 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:14:35,510 - verification_system - INFO - Starting verification process
+2025-05-18 06:14:35,510 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:14:35,511 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:14:35,511 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:14:35,511 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:14:35,513 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:14:35,513 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:14:35,513 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 06:14:35,514 - verification_system - INFO - First failure example: {'inputs': [-88, 81, -11, 20], 'error': "'int' object is not subscriptable"}
+2025-05-18 06:14:35,514 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 06:14:35,514 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:14:35,514 - verification_system - INFO - Original function: checkDiscount with params ['u', 't', 'h', 'd']
+2025-05-18 06:14:35,514 - verification_system - INFO - Refactored function: check_discount with params ['user', 'total', 'holiday', 'day_type']
+2025-05-18 06:14:35,514 - verification_system - INFO - Loading functions from code
+2025-05-18 06:14:35,515 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:14:35,515 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:14:35,516 - verification_system - ERROR - Z3 verification error: 'ArithRef' object is not subscriptable
+2025-05-18 06:14:35,516 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 962, in verify_refactoring
+    expr1 = translator1.translate(original_code, shared_vars)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 456, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 519, in visit_Compare
+    left = self.visit(node.left)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 605, in visit_Subscript
+    return self.vars[var_name][index]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^
+TypeError: 'ArithRef' object is not subscriptable
+
+2025-05-18 06:14:35,516 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:14:35,516 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:14:35,517 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:14:35,517 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:14:35,517 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:14:35,517 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:14:35,517 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 06:14:35,517 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:14:35,517 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 06:14:35,517 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:14:35,517 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:14:35,517 - verification_system - INFO - Final result: False
+2025-05-18 06:19:56,016 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:19:56,023 - verification_system - INFO - Starting verification process
+2025-05-18 06:19:56,023 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:19:56,023 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:19:56,023 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:19:56,023 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:19:56,024 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:19:56,024 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:19:56,024 - verification_system - INFO - Runtime verification failures: 13
+2025-05-18 06:19:56,024 - verification_system - INFO - First failure example: {'inputs': [31.034422718165956, -32.362090419254656, 89.16218521765788], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:19:56,024 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 06:19:56,024 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:19:56,024 - verification_system - INFO - Original function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:19:56,025 - verification_system - INFO - Refactored function: is_prime with params ['number', 'unused_y', 'unused_z']
+2025-05-18 06:19:56,025 - verification_system - INFO - Loading functions from code
+2025-05-18 06:19:56,025 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:19:56,025 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:19:56,026 - verification_system - ERROR - Z3 verification error: Comparison operator <class 'ast.In'> not supported
+2025-05-18 06:19:56,027 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 963, in verify_refactoring
+    expr2 = translator2.translate(refactored_code, param_mapping)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 456, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 539, in visit_Compare
+    raise NotImplementedError(f"Comparison operator {type(op)} not supported")
+NotImplementedError: Comparison operator <class 'ast.In'> not supported
+
+2025-05-18 06:19:56,027 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:19:56,027 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:19:56,027 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:19:56,027 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:19:56,028 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:19:56,028 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:19:56,028 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 06:19:56,028 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:19:56,028 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 06:19:56,028 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:19:56,028 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:19:56,028 - verification_system - INFO - Final result: False
+2025-05-18 06:20:25,762 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:20:29,268 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:20:29,269 - verification_system - INFO - Starting verification process
+2025-05-18 06:20:29,269 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:20:29,269 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:20:29,269 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:20:29,270 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:20:29,270 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:20:29,271 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:20:29,271 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 06:20:29,271 - verification_system - INFO - First failure example: {'inputs': [-53.328657820822166, -73.8152536704781, 45], 'error': 'is_prime() takes 1 positional argument but 3 were given'}
+2025-05-18 06:20:29,271 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 06:20:29,271 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:20:29,271 - verification_system - INFO - Original function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:20:29,271 - verification_system - INFO - Refactored function: is_prime with params ['number']
+2025-05-18 06:20:29,271 - verification_system - INFO - Loading functions from code
+2025-05-18 06:20:29,271 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:20:29,272 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:20:29,272 - verification_system - ERROR - Z3 verification error: Function call to isinstance not supported
+2025-05-18 06:20:29,273 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 963, in verify_refactoring
+    expr2 = translator2.translate(refactored_code, param_mapping)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 456, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 552, in visit_UnaryOp
+    operand = self.visit(node.operand)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 582, in visit_Call
+    raise NotImplementedError(f"Function call to {func_name} not supported")
+NotImplementedError: Function call to isinstance not supported
+
+2025-05-18 06:20:29,273 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:20:29,273 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:20:29,273 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:20:29,273 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:20:29,273 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:20:29,273 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:20:29,273 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 06:20:29,273 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:20:29,273 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 06:20:29,274 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:20:29,274 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:20:29,274 - verification_system - INFO - Final result: False
+2025-05-18 06:20:57,290 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:21:01,704 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:21:01,705 - verification_system - INFO - Starting verification process
+2025-05-18 06:21:01,705 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:21:01,705 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:21:01,705 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:21:01,705 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:21:01,706 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:21:01,706 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:21:01,706 - verification_system - INFO - Runtime verification failures: 14
+2025-05-18 06:21:01,706 - verification_system - INFO - First failure example: {'inputs': [41.85397275425083, 97, 51.88016532927898], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:21:01,706 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 06:21:01,706 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:21:01,707 - verification_system - INFO - Original function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:21:01,707 - verification_system - INFO - Refactored function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:21:01,707 - verification_system - INFO - Loading functions from code
+2025-05-18 06:21:01,707 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:21:01,707 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:21:01,708 - verification_system - ERROR - Z3 verification error: Function call to isinstance not supported
+2025-05-18 06:21:01,708 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 963, in verify_refactoring
+    expr2 = translator2.translate(refactored_code, param_mapping)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 456, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 503, in visit_BoolOp
+    values = [self.visit(val) for val in node.values]
+              ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 552, in visit_UnaryOp
+    operand = self.visit(node.operand)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 582, in visit_Call
+    raise NotImplementedError(f"Function call to {func_name} not supported")
+NotImplementedError: Function call to isinstance not supported
+
+2025-05-18 06:21:01,708 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:21:01,708 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:21:01,709 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:21:01,709 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:21:01,709 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:21:01,709 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:21:01,709 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 06:21:01,709 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:21:01,709 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 06:21:01,709 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:21:01,709 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:21:01,709 - verification_system - INFO - Final result: False
+2025-05-18 06:21:30,615 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:21:34,811 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:21:34,812 - verification_system - INFO - Starting verification process
+2025-05-18 06:21:34,812 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:21:34,812 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:21:34,812 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:21:34,812 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:21:34,813 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:21:34,814 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:21:34,814 - verification_system - INFO - Runtime verification failures: 5
+2025-05-18 06:21:34,814 - verification_system - INFO - First failure example: {'inputs': [18.031369695518947, 77, 3], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:21:34,814 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 06:21:34,814 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:21:34,814 - verification_system - INFO - Original function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:21:34,814 - verification_system - INFO - Refactored function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:21:34,814 - verification_system - INFO - Loading functions from code
+2025-05-18 06:21:34,814 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:21:34,815 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:21:34,815 - verification_system - ERROR - Z3 verification error: Function call to isinstance not supported
+2025-05-18 06:21:34,816 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 963, in verify_refactoring
+    expr2 = translator2.translate(refactored_code, param_mapping)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 456, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 503, in visit_BoolOp
+    values = [self.visit(val) for val in node.values]
+              ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 552, in visit_UnaryOp
+    operand = self.visit(node.operand)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 582, in visit_Call
+    raise NotImplementedError(f"Function call to {func_name} not supported")
+NotImplementedError: Function call to isinstance not supported
+
+2025-05-18 06:21:34,816 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:21:34,816 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:21:34,816 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:21:34,816 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:21:34,816 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:21:34,817 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:21:34,817 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 06:21:34,817 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:21:34,817 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 06:21:34,817 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:21:34,817 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:21:34,817 - verification_system - INFO - Final result: False
+2025-05-18 06:22:03,878 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:22:10,289 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:22:10,290 - verification_system - INFO - Starting verification process
+2025-05-18 06:22:10,290 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:22:10,291 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:22:10,291 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:22:10,291 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:22:10,291 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:22:10,291 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:22:10,292 - verification_system - INFO - Runtime verification failures: 9
+2025-05-18 06:22:10,292 - verification_system - INFO - First failure example: {'inputs': [97.19272438309122, 27.59100393930214, 41], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:22:10,292 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 06:22:10,292 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:22:10,292 - verification_system - INFO - Original function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:22:10,292 - verification_system - INFO - Refactored function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:22:10,292 - verification_system - INFO - Loading functions from code
+2025-05-18 06:22:10,292 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:22:10,293 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:22:10,293 - verification_system - ERROR - Z3 verification error: Function call to isinstance not supported
+2025-05-18 06:22:10,294 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 963, in verify_refactoring
+    expr2 = translator2.translate(refactored_code, param_mapping)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 456, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 552, in visit_UnaryOp
+    operand = self.visit(node.operand)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 582, in visit_Call
+    raise NotImplementedError(f"Function call to {func_name} not supported")
+NotImplementedError: Function call to isinstance not supported
+
+2025-05-18 06:22:10,294 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:22:10,294 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:22:10,294 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:22:10,294 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:22:10,294 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:22:10,294 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:22:10,294 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 06:22:10,294 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:22:10,294 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 06:22:10,294 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:22:10,294 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:22:10,295 - verification_system - INFO - Final result: False
+2025-05-18 06:22:36,220 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:22:41,018 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:22:41,019 - verification_system - INFO - Starting verification process
+2025-05-18 06:22:41,019 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:22:41,019 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:22:41,019 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:22:41,019 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:22:41,020 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:22:41,020 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:22:41,020 - verification_system - INFO - Runtime verification failures: 11
+2025-05-18 06:22:41,020 - verification_system - INFO - First failure example: {'inputs': [51.349535587975424, 54.70269188986077, 77.22002331144884], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:22:41,020 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 06:22:41,020 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:22:41,021 - verification_system - INFO - Original function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:22:41,021 - verification_system - INFO - Refactored function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:22:41,021 - verification_system - INFO - Loading functions from code
+2025-05-18 06:22:41,021 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:22:41,021 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:22:41,022 - verification_system - ERROR - Z3 verification error: Comparison operator <class 'ast.In'> not supported
+2025-05-18 06:22:41,022 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 963, in verify_refactoring
+    expr2 = translator2.translate(refactored_code, param_mapping)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 456, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 539, in visit_Compare
+    raise NotImplementedError(f"Comparison operator {type(op)} not supported")
+NotImplementedError: Comparison operator <class 'ast.In'> not supported
+
+2025-05-18 06:22:41,022 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:22:41,023 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:22:41,023 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:22:41,023 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:22:41,023 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:22:41,023 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:22:41,023 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 06:22:41,023 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:22:41,023 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 06:22:41,023 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:22:41,023 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:22:41,023 - verification_system - INFO - Final result: False
+2025-05-18 06:23:07,786 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:23:11,913 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:23:11,914 - verification_system - INFO - Starting verification process
+2025-05-18 06:23:11,914 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:23:11,914 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:23:11,914 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:23:11,914 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:23:11,915 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:23:11,915 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:23:11,915 - verification_system - INFO - Runtime verification failures: 10
+2025-05-18 06:23:11,915 - verification_system - INFO - First failure example: {'inputs': [42.19378797039673, 67.97713556836914, 71], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:23:11,915 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 06:23:11,915 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:23:11,916 - verification_system - INFO - Original function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:23:11,916 - verification_system - INFO - Refactored function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:23:11,916 - verification_system - INFO - Loading functions from code
+2025-05-18 06:23:11,916 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:23:11,916 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:23:11,917 - verification_system - ERROR - Z3 verification error: Comparison operator <class 'ast.In'> not supported
+2025-05-18 06:23:11,917 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 963, in verify_refactoring
+    expr2 = translator2.translate(refactored_code, param_mapping)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 456, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 539, in visit_Compare
+    raise NotImplementedError(f"Comparison operator {type(op)} not supported")
+NotImplementedError: Comparison operator <class 'ast.In'> not supported
+
+2025-05-18 06:23:11,918 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:23:11,918 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:23:11,918 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:23:11,918 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:23:11,918 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:23:11,918 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:23:11,918 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 06:23:11,918 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:23:11,918 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 06:23:11,918 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:23:11,918 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:23:11,918 - verification_system - INFO - Final result: False
+2025-05-18 06:23:41,946 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:23:47,256 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:23:47,257 - verification_system - INFO - Starting verification process
+2025-05-18 06:23:47,257 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:23:47,258 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:23:47,258 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:23:47,258 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:23:47,259 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:23:47,259 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:23:47,259 - verification_system - INFO - Runtime verification failures: 12
+2025-05-18 06:23:47,259 - verification_system - INFO - First failure example: {'inputs': [86.88510249125866, -70.94609244815271, -80.05222826109241], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:23:47,259 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 06:23:47,259 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:23:47,259 - verification_system - INFO - Original function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:23:47,259 - verification_system - INFO - Refactored function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:23:47,259 - verification_system - INFO - Loading functions from code
+2025-05-18 06:23:47,260 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:23:47,260 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:23:47,260 - verification_system - ERROR - Z3 verification error: Comparison operator <class 'ast.In'> not supported
+2025-05-18 06:23:47,261 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 963, in verify_refactoring
+    expr2 = translator2.translate(refactored_code, param_mapping)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 456, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 539, in visit_Compare
+    raise NotImplementedError(f"Comparison operator {type(op)} not supported")
+NotImplementedError: Comparison operator <class 'ast.In'> not supported
+
+2025-05-18 06:23:47,261 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:23:47,261 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:23:47,261 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:23:47,262 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:23:47,262 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:23:47,262 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:23:47,262 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 06:23:47,262 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:23:47,262 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 06:23:47,262 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:23:47,262 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:23:47,262 - verification_system - INFO - Final result: False
+2025-05-18 06:24:18,260 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:24:26,640 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:24:26,647 - verification_system - INFO - Starting verification process
+2025-05-18 06:24:26,647 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:24:26,647 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:24:26,647 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:24:26,647 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:24:26,648 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:24:26,648 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:24:26,648 - verification_system - INFO - Runtime verification failures: 10
+2025-05-18 06:24:26,648 - verification_system - INFO - First failure example: {'inputs': [93.35827063187034, -52, -11.11549179963663], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:24:26,648 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 06:24:26,648 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:24:26,648 - verification_system - INFO - Original function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:24:26,648 - verification_system - INFO - Refactored function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:24:26,649 - verification_system - INFO - Loading functions from code
+2025-05-18 06:24:26,649 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:24:26,649 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:24:26,649 - verification_system - ERROR - Z3 verification error: Function call to is_prime_number not supported
+2025-05-18 06:24:26,650 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 967, in verify_refactoring
+    expr2 = translator2.translate(refactored_code, param_mapping)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 449, in translate
+    result = self.visit(stmt.value)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 582, in visit_Call
+    raise NotImplementedError(f"Function call to {func_name} not supported")
+NotImplementedError: Function call to is_prime_number not supported
+
+2025-05-18 06:24:26,651 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:24:26,651 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:24:26,651 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:24:26,651 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:24:26,651 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:24:26,651 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:24:26,651 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 06:24:26,651 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:24:26,651 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 06:24:26,652 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:24:26,652 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:24:26,652 - verification_system - INFO - Final result: False
+2025-05-18 06:24:56,654 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:25:01,957 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:25:01,958 - verification_system - INFO - Starting verification process
+2025-05-18 06:25:01,958 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:25:01,958 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:25:01,958 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:25:01,958 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:25:01,959 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:25:01,959 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:25:01,959 - verification_system - INFO - Runtime verification failures: 9
+2025-05-18 06:25:01,959 - verification_system - INFO - First failure example: {'inputs': [96.62783770038129, -3.6333432163394974, -17.667855945022666], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:25:01,959 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 06:25:01,959 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:25:01,960 - verification_system - INFO - Original function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:25:01,960 - verification_system - INFO - Refactored function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:25:01,960 - verification_system - INFO - Loading functions from code
+2025-05-18 06:25:01,960 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:25:01,960 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:25:01,961 - verification_system - ERROR - Z3 verification error: Function call to is_prime_number not supported
+2025-05-18 06:25:01,961 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 967, in verify_refactoring
+    expr2 = translator2.translate(refactored_code, param_mapping)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 449, in translate
+    result = self.visit(stmt.value)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 582, in visit_Call
+    raise NotImplementedError(f"Function call to {func_name} not supported")
+NotImplementedError: Function call to is_prime_number not supported
+
+2025-05-18 06:25:01,961 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:25:01,961 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:25:01,961 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:25:01,962 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:25:01,962 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:25:01,962 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:25:01,962 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 06:25:01,962 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:25:01,962 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 06:25:01,962 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:25:01,962 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:25:01,962 - verification_system - INFO - Final result: False
+2025-05-18 06:25:27,627 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:25:32,480 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:25:32,481 - verification_system - INFO - Starting verification process
+2025-05-18 06:25:32,481 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:25:32,481 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:25:32,481 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:25:32,481 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:25:32,482 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:25:32,482 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:25:32,482 - verification_system - INFO - Runtime verification failures: 12
+2025-05-18 06:25:32,482 - verification_system - INFO - First failure example: {'inputs': [62.34773596558193, 49.943078875533416, -68.67432332814136], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:25:32,482 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 06:25:32,482 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:25:32,483 - verification_system - INFO - Original function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:25:32,483 - verification_system - INFO - Refactored function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:25:32,483 - verification_system - INFO - Loading functions from code
+2025-05-18 06:25:32,483 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:25:32,483 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:25:32,484 - verification_system - ERROR - Z3 verification error: Function call to is_prime_number not supported
+2025-05-18 06:25:32,484 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 967, in verify_refactoring
+    expr2 = translator2.translate(refactored_code, param_mapping)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 449, in translate
+    result = self.visit(stmt.value)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 582, in visit_Call
+    raise NotImplementedError(f"Function call to {func_name} not supported")
+NotImplementedError: Function call to is_prime_number not supported
+
+2025-05-18 06:25:32,484 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:25:32,484 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:25:32,484 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:25:32,485 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:25:32,485 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:25:32,485 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:25:32,485 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 06:25:32,485 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:25:32,485 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 06:25:32,485 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:25:32,485 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:25:32,485 - verification_system - INFO - Final result: False
+2025-05-18 06:25:59,587 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:26:03,340 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:26:03,341 - verification_system - INFO - Starting verification process
+2025-05-18 06:26:03,341 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:26:03,341 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:26:03,341 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:26:03,341 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:26:03,342 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:26:03,342 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:26:03,342 - verification_system - INFO - Runtime verification failures: 19
+2025-05-18 06:26:03,342 - verification_system - INFO - First failure example: {'inputs': [15.3926591121174, -14.021688258138525, -91], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:26:03,342 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 06:26:03,342 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:26:03,343 - verification_system - INFO - Original function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:26:03,343 - verification_system - INFO - Refactored function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:26:03,343 - verification_system - INFO - Loading functions from code
+2025-05-18 06:26:03,343 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:26:03,343 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:26:03,343 - verification_system - ERROR - Z3 verification error: Function call to is_prime_number not supported
+2025-05-18 06:26:03,344 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 967, in verify_refactoring
+    expr2 = translator2.translate(refactored_code, param_mapping)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 449, in translate
+    result = self.visit(stmt.value)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 582, in visit_Call
+    raise NotImplementedError(f"Function call to {func_name} not supported")
+NotImplementedError: Function call to is_prime_number not supported
+
+2025-05-18 06:26:03,344 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:26:03,344 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:26:03,344 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:26:03,345 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:26:03,345 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:26:03,345 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:26:03,345 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 06:26:03,345 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:26:03,345 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 06:26:03,345 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:26:03,345 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:26:03,345 - verification_system - INFO - Final result: False
+2025-05-18 06:26:27,874 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:26:31,546 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:26:31,547 - verification_system - INFO - Starting verification process
+2025-05-18 06:26:31,548 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:26:31,548 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:26:31,548 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:26:31,548 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:26:31,549 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:26:31,549 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:26:31,549 - verification_system - INFO - Runtime verification failures: 9
+2025-05-18 06:26:31,549 - verification_system - INFO - First failure example: {'inputs': [8.671951049996807, 77.66573817944032, 98.03871815137265], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:26:31,549 - verification_system - INFO - Code has no helper functions, proceeding with Z3 and CrossHair verification
+2025-05-18 06:26:31,549 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:26:31,549 - verification_system - INFO - Original function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:26:31,550 - verification_system - INFO - Refactored function: is_prime with params ['x', 'y', 'z']
+2025-05-18 06:26:31,550 - verification_system - INFO - Loading functions from code
+2025-05-18 06:26:31,550 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:26:31,551 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:26:31,551 - verification_system - ERROR - Z3 verification error: Function call to isinstance not supported
+2025-05-18 06:26:31,552 - verification_system - ERROR - Z3 verification traceback: Traceback (most recent call last):
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 967, in verify_refactoring
+    expr2 = translator2.translate(refactored_code, param_mapping)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 456, in translate
+    condition = self.visit(stmt.test)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 503, in visit_BoolOp
+    values = [self.visit(val) for val in node.values]
+              ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 552, in visit_UnaryOp
+    operand = self.visit(node.operand)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/FORGE-refactor/test_changes/refactor_verification.py", line 582, in visit_Call
+    raise NotImplementedError(f"Function call to {func_name} not supported")
+NotImplementedError: Function call to isinstance not supported
+
+2025-05-18 06:26:31,552 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:26:31,552 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:26:31,552 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:26:31,552 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:26:31,553 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:26:31,553 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:26:31,553 - verification_system - INFO - Z3 verification says equivalent: False
+2025-05-18 06:26:31,553 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:26:31,553 - verification_system - INFO - Runtime testing says equivalent: False
+2025-05-18 06:26:31,553 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:26:31,553 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:26:31,553 - verification_system - INFO - Final result: False
+2025-05-18 06:27:06,308 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:27:14,594 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:27:14,601 - verification_system - INFO - Starting verification process
+2025-05-18 06:27:14,601 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:27:14,601 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:27:14,601 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:27:14,601 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:27:14,602 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:27:14,602 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:27:14,602 - verification_system - INFO - Runtime verification failures: 13
+2025-05-18 06:27:14,602 - verification_system - INFO - First failure example: {'inputs': [22.282652689053577, 34.39178445427106, -77], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:27:14,602 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:27:14,602 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:27:14,602 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:27:14,603 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:27:14,603 - verification_system - INFO - Final result: False
+2025-05-18 06:27:36,248 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:27:40,144 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:27:40,145 - verification_system - INFO - Starting verification process
+2025-05-18 06:27:40,145 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:27:40,145 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:27:40,146 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:27:40,146 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:27:40,146 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:27:40,147 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:27:40,147 - verification_system - INFO - Runtime verification failures: 20
+2025-05-18 06:27:40,147 - verification_system - INFO - First failure example: {'inputs': [35.23276383057873, 90.78397108886242, -62], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:27:40,147 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:27:40,147 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:27:40,147 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:27:40,147 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:27:40,147 - verification_system - INFO - Final result: False
+2025-05-18 06:27:57,628 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:28:01,860 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:28:01,861 - verification_system - INFO - Starting verification process
+2025-05-18 06:28:01,861 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:28:01,861 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:28:01,861 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:28:01,861 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:28:01,862 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:28:01,862 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:28:01,862 - verification_system - INFO - Runtime verification failures: 11
+2025-05-18 06:28:01,862 - verification_system - INFO - First failure example: {'inputs': [11.869184811840555, 69.53209195972892, 55.67257841285155], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:28:01,862 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:28:01,862 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:28:01,862 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:28:01,862 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:28:01,862 - verification_system - INFO - Final result: False
+2025-05-18 06:28:29,748 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:28:33,491 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:28:33,492 - verification_system - INFO - Starting verification process
+2025-05-18 06:28:33,492 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:28:33,492 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:28:33,492 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:28:33,492 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:28:33,493 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:28:33,494 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:28:33,494 - verification_system - INFO - Runtime verification failures: 20
+2025-05-18 06:28:33,494 - verification_system - INFO - First failure example: {'inputs': [15.06481693514236, 23.480214534454973, 50], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:28:33,494 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:28:33,494 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:28:33,494 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:28:33,494 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:28:33,494 - verification_system - INFO - Final result: False
+2025-05-18 06:28:58,563 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:29:02,503 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:29:02,504 - verification_system - INFO - Starting verification process
+2025-05-18 06:29:02,504 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:29:02,504 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:29:02,504 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:29:02,504 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:29:02,505 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:29:02,505 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:29:02,505 - verification_system - INFO - Runtime verification failures: 10
+2025-05-18 06:29:02,505 - verification_system - INFO - First failure example: {'inputs': [87.58646304687616, -89.24064298281364, 69.91298605926218], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:29:02,505 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:29:02,505 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:29:02,506 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:29:02,506 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:29:02,506 - verification_system - INFO - Final result: False
+2025-05-18 06:29:25,068 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:29:29,487 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:29:29,488 - verification_system - INFO - Starting verification process
+2025-05-18 06:29:29,488 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:29:29,488 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:29:29,488 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:29:29,488 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:29:29,489 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:29:29,489 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:29:29,489 - verification_system - INFO - Runtime verification failures: 13
+2025-05-18 06:29:29,489 - verification_system - INFO - First failure example: {'inputs': [95.28578644106537, 77.57014349351823, 87.76801262359183], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:29:29,489 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:29:29,489 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:29:29,489 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:29:29,490 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:29:29,490 - verification_system - INFO - Final result: False
+2025-05-18 06:32:30,601 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:32:30,608 - verification_system - INFO - Starting verification process
+2025-05-18 06:32:30,608 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:32:30,608 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:32:30,608 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:32:30,609 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:32:30,609 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:32:30,609 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:32:30,609 - verification_system - INFO - Runtime verification failures: 15
+2025-05-18 06:32:30,609 - verification_system - INFO - First failure example: {'inputs': [29.363867132826414, -58.65667952429385, 79.21576679996076], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:32:30,609 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:32:30,610 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:32:30,610 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:32:30,610 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:32:30,610 - verification_system - INFO - Final result: False
+2025-05-18 06:32:53,305 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:32:58,761 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:32:58,762 - verification_system - INFO - Starting verification process
+2025-05-18 06:32:58,762 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:32:58,762 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:32:58,763 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:32:58,763 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:32:58,763 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:32:58,764 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:32:58,764 - verification_system - INFO - Runtime verification failures: 12
+2025-05-18 06:32:58,764 - verification_system - INFO - First failure example: {'inputs': [28.705994361396193, 14, 93.76963766785727], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:32:58,764 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:32:58,764 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:32:58,764 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:32:58,764 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:32:58,764 - verification_system - INFO - Final result: False
+2025-05-18 06:33:19,800 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:33:24,659 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:33:24,660 - verification_system - INFO - Starting verification process
+2025-05-18 06:33:24,660 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:33:24,660 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:33:24,660 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:33:24,660 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:33:24,661 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:33:24,661 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:33:24,661 - verification_system - INFO - Runtime verification failures: 13
+2025-05-18 06:33:24,661 - verification_system - INFO - First failure example: {'inputs': [58.880124582475986, 75, -64], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:33:24,661 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:33:24,662 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:33:24,662 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:33:24,662 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:33:24,662 - verification_system - INFO - Final result: False
+2025-05-18 06:33:48,384 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:33:57,353 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:33:57,354 - verification_system - INFO - Starting verification process
+2025-05-18 06:33:57,354 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:33:57,354 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:33:57,354 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:33:57,354 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:33:57,355 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:33:57,355 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:33:57,355 - verification_system - INFO - Runtime verification failures: 15
+2025-05-18 06:33:57,355 - verification_system - INFO - First failure example: {'inputs': [58.528009568647576, 81, 96], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:33:57,355 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:33:57,355 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:33:57,355 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:33:57,356 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:33:57,356 - verification_system - INFO - Final result: False
+2025-05-18 06:34:22,858 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:34:27,680 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:34:27,681 - verification_system - INFO - Starting verification process
+2025-05-18 06:34:27,681 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:34:27,682 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:34:27,682 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:34:27,682 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:34:27,683 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:34:27,683 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:34:27,683 - verification_system - INFO - Runtime verification failures: 9
+2025-05-18 06:34:27,683 - verification_system - INFO - First failure example: {'inputs': [81.15977660120933, -27, -36], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:34:27,683 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:34:27,683 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:34:27,683 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:34:27,683 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:34:27,683 - verification_system - INFO - Final result: False
+2025-05-18 06:34:40,746 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:34:40,753 - verification_system - INFO - Starting verification process
+2025-05-18 06:34:40,753 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:34:40,753 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:34:40,753 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:34:40,754 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:34:40,754 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:34:40,754 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:34:40,754 - verification_system - INFO - Runtime verification failures: 13
+2025-05-18 06:34:40,754 - verification_system - INFO - First failure example: {'inputs': [74.84187443100905, -37.814125297928626, -27.735332853481154], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:34:40,755 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:34:40,755 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:34:40,755 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:34:40,755 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:34:40,755 - verification_system - INFO - Final result: False
+2025-05-18 06:34:58,316 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:35:03,640 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:35:03,641 - verification_system - INFO - Starting verification process
+2025-05-18 06:35:03,641 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:35:03,641 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:35:03,641 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:35:03,641 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:35:03,642 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:35:03,642 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:35:03,642 - verification_system - INFO - Runtime verification failures: 11
+2025-05-18 06:35:03,643 - verification_system - INFO - First failure example: {'inputs': [48.054146833090385, 45, -29], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:35:03,643 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:35:03,643 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:35:03,643 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:35:03,643 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:35:03,643 - verification_system - INFO - Final result: False
+2025-05-18 06:35:26,053 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:35:33,438 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:35:33,439 - verification_system - INFO - Starting verification process
+2025-05-18 06:35:33,439 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:35:33,440 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:35:33,440 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:35:33,440 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:35:33,440 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:35:33,440 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:35:33,441 - verification_system - INFO - Runtime verification failures: 12
+2025-05-18 06:35:33,441 - verification_system - INFO - First failure example: {'inputs': [42.240525899354196, 95, 83.80747658490097], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:35:33,441 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:35:33,441 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:35:33,441 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:35:33,441 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:35:33,441 - verification_system - INFO - Final result: False
+2025-05-18 06:35:57,261 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:36:01,743 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:36:01,744 - verification_system - INFO - Starting verification process
+2025-05-18 06:36:01,745 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:36:01,745 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:36:01,745 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:36:01,745 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:36:01,746 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:36:01,746 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:36:01,746 - verification_system - INFO - Runtime verification failures: 16
+2025-05-18 06:36:01,746 - verification_system - INFO - First failure example: {'inputs': [83.71028959391421, 91.31035670852464, 16.282734015332935], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:36:01,746 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:36:01,746 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:36:01,746 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:36:01,746 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:36:01,746 - verification_system - INFO - Final result: False
+2025-05-18 06:36:24,664 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:36:28,275 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:36:28,276 - verification_system - INFO - Starting verification process
+2025-05-18 06:36:28,276 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:36:28,276 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:36:28,277 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:36:28,277 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:36:28,277 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:36:28,277 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:36:28,277 - verification_system - INFO - Runtime verification failures: 9
+2025-05-18 06:36:28,278 - verification_system - INFO - First failure example: {'inputs': [30.546537883753842, -15, -27.515966886093594], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:36:28,278 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:36:28,278 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:36:28,278 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:36:28,278 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:36:28,278 - verification_system - INFO - Final result: False
+2025-05-18 06:36:49,740 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:36:54,013 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:36:54,014 - verification_system - INFO - Starting verification process
+2025-05-18 06:36:54,014 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:36:54,014 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:36:54,014 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:36:54,014 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:36:54,015 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:36:54,015 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:36:54,015 - verification_system - INFO - Runtime verification failures: 18
+2025-05-18 06:36:54,015 - verification_system - INFO - First failure example: {'inputs': [11.276104024436634, 69.9191483142495, 14.561448633385425], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:36:54,015 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:36:54,016 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:36:54,016 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:36:54,016 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:36:54,016 - verification_system - INFO - Final result: False
+2025-05-18 06:37:20,080 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:37:20,087 - verification_system - INFO - Starting verification process
+2025-05-18 06:37:20,087 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:37:20,087 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:37:20,087 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:37:20,087 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:37:20,088 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:37:20,088 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:37:20,088 - verification_system - INFO - Runtime verification failures: 10
+2025-05-18 06:37:20,088 - verification_system - INFO - First failure example: {'inputs': [17.203225023499314, 9, 3.505495685851699], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:37:20,088 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:37:20,088 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:37:20,088 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:37:20,088 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:37:20,088 - verification_system - INFO - Final result: False
+2025-05-18 06:38:09,094 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:38:09,100 - verification_system - INFO - Starting verification process
+2025-05-18 06:38:09,100 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:38:09,101 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:38:09,101 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:38:09,101 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:38:09,102 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:38:09,102 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:38:09,102 - verification_system - INFO - Runtime verification failures: 11
+2025-05-18 06:38:09,102 - verification_system - INFO - First failure example: {'inputs': [77.66424943311836, -31, -29], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:38:09,102 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:38:09,102 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:38:09,102 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:38:09,102 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:38:09,102 - verification_system - INFO - Final result: False
+2025-05-18 06:38:37,726 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:38:43,141 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:38:43,143 - verification_system - INFO - Starting verification process
+2025-05-18 06:38:43,143 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:38:43,143 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:38:43,143 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:38:43,143 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:38:43,144 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:38:43,144 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:38:43,144 - verification_system - INFO - Runtime verification failures: 7
+2025-05-18 06:38:43,144 - verification_system - INFO - First failure example: {'inputs': [54.390878690405145, 10, 49.93912777030721], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:38:43,144 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:38:43,144 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:38:43,144 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:38:43,144 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:38:43,144 - verification_system - INFO - Final result: False
+2025-05-18 06:39:05,992 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:39:52,652 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:39:52,659 - verification_system - INFO - Starting verification process
+2025-05-18 06:39:52,659 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:39:52,659 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:39:52,659 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:39:52,659 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:39:52,660 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:39:52,660 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:39:52,660 - verification_system - INFO - Runtime verification failures: 9
+2025-05-18 06:39:52,660 - verification_system - INFO - First failure example: {'inputs': [46.270074247075684, -59.48255567816545, -88.06116624014865], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:39:52,660 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:39:52,660 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:39:52,660 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:39:52,661 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:39:52,661 - verification_system - INFO - Final result: False
+2025-05-18 06:40:15,737 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:40:20,803 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:40:20,804 - verification_system - INFO - Starting verification process
+2025-05-18 06:40:20,804 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:40:20,805 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:40:20,805 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:40:20,805 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:40:20,806 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:40:20,806 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:40:20,806 - verification_system - INFO - Runtime verification failures: 12
+2025-05-18 06:40:20,806 - verification_system - INFO - First failure example: {'inputs': [64.80235023398708, -87, -51.83738940806566], 'error': "'float' object cannot be interpreted as an integer"}
+2025-05-18 06:40:20,806 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:40:20,806 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:40:20,806 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:40:20,806 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:40:20,806 - verification_system - INFO - Final result: False
+2025-05-18 06:42:23,147 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:42:23,154 - verification_system - INFO - Starting verification process
+2025-05-18 06:42:23,154 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:42:23,154 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:42:23,154 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:42:23,154 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:42:23,155 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:42:23,155 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:42:23,155 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 06:42:23,155 - verification_system - INFO - First failure example: {'inputs': [-31], 'error': "object of type 'int' has no len()"}
+2025-05-18 06:42:23,155 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:42:23,155 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:42:23,155 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:42:23,155 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:42:23,155 - verification_system - INFO - Final result: False
+2025-05-18 06:42:40,904 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:42:44,393 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:42:44,394 - verification_system - INFO - Starting verification process
+2025-05-18 06:42:44,395 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:42:44,395 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:42:44,395 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:42:44,395 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:42:44,396 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:42:44,396 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:42:44,396 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 06:42:44,396 - verification_system - INFO - First failure example: {'inputs': [40], 'error': "object of type 'int' has no len()"}
+2025-05-18 06:42:44,396 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:42:44,396 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:42:44,396 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:42:44,396 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:42:44,396 - verification_system - INFO - Final result: False
+2025-05-18 06:43:05,842 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:43:08,819 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:43:08,820 - verification_system - INFO - Starting verification process
+2025-05-18 06:43:08,820 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:43:08,820 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:43:08,820 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:43:08,820 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:43:08,821 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:43:08,821 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:43:08,821 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 06:43:08,821 - verification_system - INFO - First failure example: {'inputs': [11], 'error': "object of type 'int' has no len()"}
+2025-05-18 06:43:08,821 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:43:08,821 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:43:08,822 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:43:08,822 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:43:08,822 - verification_system - INFO - Final result: False
+2025-05-18 06:45:57,692 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:45:57,698 - verification_system - INFO - Starting verification process
+2025-05-18 06:45:57,698 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:45:57,699 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:45:57,699 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:45:57,699 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:45:57,700 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:45:57,700 - verification_system - INFO - Runtime verification result: equivalent=True
+2025-05-18 06:45:57,700 - verification_system - INFO - Runtime verification successful. Proceeding with Z3 and CrossHair for additional confidence.
+2025-05-18 06:45:57,700 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:45:57,700 - verification_system - INFO - Original function: is_prime with params ['n', 'a', 'b']
+2025-05-18 06:45:57,700 - verification_system - INFO - Refactored function: is_prime with params ['n', 'a', 'b']
+2025-05-18 06:45:57,700 - verification_system - INFO - Loading functions from code
+2025-05-18 06:45:57,701 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:45:57,701 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:45:57,701 - verification_system - INFO - Z3 verification skipped due to limitation: Function call to type not supported
+2025-05-18 06:45:57,701 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:45:57,701 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:45:57,702 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:45:57,702 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:45:57,702 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:45:57,702 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:45:57,702 - verification_system - INFO - Runtime verification says equivalent: True
+2025-05-18 06:45:57,702 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:45:57,702 - verification_system - INFO - Final equivalence determination: True
+2025-05-18 06:45:57,702 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:45:57,702 - verification_system - INFO - Final result: True
+2025-05-18 06:45:59,119 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:46:00,583 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:46:01,901 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:46:03,361 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:46:06,178 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:51:04,788 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:51:04,794 - verification_system - INFO - Starting verification process
+2025-05-18 06:51:04,794 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:51:04,795 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:51:04,795 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:51:04,795 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:51:04,796 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:51:04,796 - verification_system - INFO - Runtime verification result: equivalent=True
+2025-05-18 06:51:04,796 - verification_system - INFO - Runtime verification successful. Proceeding with Z3 and CrossHair for additional confidence.
+2025-05-18 06:51:04,796 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:51:04,796 - verification_system - INFO - Original function: is_prime with params ['n', 'a', 'b']
+2025-05-18 06:51:04,796 - verification_system - INFO - Refactored function: is_prime with params ['number', 'a', 'b']
+2025-05-18 06:51:04,796 - verification_system - INFO - Loading functions from code
+2025-05-18 06:51:04,797 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:51:04,797 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:51:04,797 - verification_system - INFO - Z3 verification skipped due to limitation: Function call to int not supported
+2025-05-18 06:51:04,797 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:51:04,797 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:51:04,798 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:51:04,798 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:51:04,798 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:51:04,798 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:51:04,798 - verification_system - INFO - Runtime verification says equivalent: True
+2025-05-18 06:51:04,798 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:51:04,798 - verification_system - INFO - Final equivalence determination: True
+2025-05-18 06:51:04,798 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:51:04,798 - verification_system - INFO - Final result: True
+2025-05-18 06:51:06,295 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:51:07,767 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:51:09,167 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:51:10,373 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:51:11,557 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:54:11,415 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:54:11,421 - verification_system - INFO - Starting verification process
+2025-05-18 06:54:11,421 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:54:11,422 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:54:11,422 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:54:11,422 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:54:11,423 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:54:11,423 - verification_system - INFO - Runtime verification result: equivalent=True
+2025-05-18 06:54:11,423 - verification_system - INFO - Runtime verification successful. Proceeding with Z3 and CrossHair for additional confidence.
+2025-05-18 06:54:11,423 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:54:11,424 - verification_system - INFO - Original function: is_prime with params ['n', 'a', 'b']
+2025-05-18 06:54:11,424 - verification_system - INFO - Refactored function: is_prime with params ['n', 'a', 'b']
+2025-05-18 06:54:11,424 - verification_system - INFO - Loading functions from code
+2025-05-18 06:54:11,424 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:54:11,424 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:54:11,425 - verification_system - INFO - Z3 verification skipped due to limitation: Function call to int not supported
+2025-05-18 06:54:11,425 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:54:11,425 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:54:11,425 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:54:11,425 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:54:11,425 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:54:11,425 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:54:11,425 - verification_system - INFO - Runtime verification says equivalent: True
+2025-05-18 06:54:11,426 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:54:11,426 - verification_system - INFO - Final equivalence determination: True
+2025-05-18 06:54:11,426 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:54:11,426 - verification_system - INFO - Final result: True
+2025-05-18 06:54:12,841 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:54:14,310 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:54:16,551 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:54:17,855 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:54:20,165 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:56:27,986 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:56:27,992 - verification_system - INFO - Starting verification process
+2025-05-18 06:56:27,992 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:56:27,993 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:56:27,993 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:56:27,993 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:56:27,994 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:56:27,994 - verification_system - INFO - Runtime verification result: equivalent=True
+2025-05-18 06:56:27,994 - verification_system - INFO - Runtime verification successful. Proceeding with Z3 and CrossHair for additional confidence.
+2025-05-18 06:56:27,994 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:56:27,995 - verification_system - INFO - Original function: is_prime with params ['n', 'a', 'b']
+2025-05-18 06:56:27,995 - verification_system - INFO - Refactored function: is_prime with params ['n', 'a', 'b']
+2025-05-18 06:56:27,995 - verification_system - INFO - Loading functions from code
+2025-05-18 06:56:27,995 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:56:27,995 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:56:27,995 - verification_system - INFO - Z3 verification skipped due to limitation: Function call to is_integer not supported
+2025-05-18 06:56:27,996 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:56:27,996 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:56:27,996 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:56:27,996 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:56:27,996 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:56:27,996 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:56:27,996 - verification_system - INFO - Runtime verification says equivalent: True
+2025-05-18 06:56:27,996 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:56:27,996 - verification_system - INFO - Final equivalence determination: True
+2025-05-18 06:56:27,996 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:56:27,997 - verification_system - INFO - Final result: True
+2025-05-18 06:56:29,436 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:56:31,254 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:56:33,405 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:56:35,131 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:56:36,615 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:57:10,520 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:57:10,527 - verification_system - INFO - Starting verification process
+2025-05-18 06:57:10,527 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:57:10,527 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:57:10,527 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:57:10,528 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:57:10,528 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:57:10,529 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:57:10,529 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 06:57:10,529 - verification_system - INFO - First failure example: {'inputs': [-74, 66, 75], 'error': 'is_prime() takes 1 positional argument but 3 were given'}
+2025-05-18 06:57:10,529 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:57:10,529 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:57:10,529 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:57:10,529 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:57:10,529 - verification_system - INFO - Final result: False
+2025-05-18 06:57:53,982 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:57:53,988 - verification_system - INFO - Starting verification process
+2025-05-18 06:57:53,988 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:57:53,989 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:57:53,989 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:57:53,989 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:57:53,990 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:57:53,990 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:57:53,990 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 06:57:53,990 - verification_system - INFO - First failure example: {'inputs': [-8, -83, -43], 'error': 'is_prime() takes 1 positional argument but 3 were given'}
+2025-05-18 06:57:53,990 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:57:53,990 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:57:53,990 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:57:53,990 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:57:53,990 - verification_system - INFO - Final result: False
+2025-05-18 06:58:10,800 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:58:15,524 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:58:15,525 - verification_system - INFO - Starting verification process
+2025-05-18 06:58:15,525 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:58:15,525 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:58:15,525 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:58:15,525 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:58:15,526 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:58:15,526 - verification_system - INFO - Runtime verification result: equivalent=False
+2025-05-18 06:58:15,526 - verification_system - INFO - Runtime verification failures: 50
+2025-05-18 06:58:15,526 - verification_system - INFO - First failure example: {'inputs': [88, -92, -57], 'error': 'is_prime() takes 1 positional argument but 3 were given'}
+2025-05-18 06:58:15,526 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:58:15,526 - verification_system - INFO - Runtime verification says equivalent: False
+2025-05-18 06:58:15,527 - verification_system - INFO - Final equivalence determination: False
+2025-05-18 06:58:15,527 - verification_system - INFO - Verification completed. Steps performed: ['runtime']
+2025-05-18 06:58:15,527 - verification_system - INFO - Final result: False
+2025-05-18 06:58:33,221 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:58:41,947 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:58:41,948 - verification_system - INFO - Starting verification process
+2025-05-18 06:58:41,948 - verification_system - INFO - Extracting functions from code
+2025-05-18 06:58:41,948 - verification_system - INFO - Found 1 functions in original code
+2025-05-18 06:58:41,948 - verification_system - INFO - Found 1 functions in refactored code
+2025-05-18 06:58:41,948 - verification_system - INFO - Starting runtime verification
+2025-05-18 06:58:41,949 - verification_system - INFO - Runtime verification completed in 0.00 seconds
+2025-05-18 06:58:41,950 - verification_system - INFO - Runtime verification result: equivalent=True
+2025-05-18 06:58:41,950 - verification_system - INFO - Runtime verification successful. Proceeding with Z3 and CrossHair for additional confidence.
+2025-05-18 06:58:41,950 - verification_system - INFO - Extracting function signatures
+2025-05-18 06:58:41,950 - verification_system - INFO - Original function: is_prime with params ['n', 'a', 'b']
+2025-05-18 06:58:41,950 - verification_system - INFO - Refactored function: is_prime with params ['n', 'a', 'b']
+2025-05-18 06:58:41,950 - verification_system - INFO - Loading functions from code
+2025-05-18 06:58:41,950 - verification_system - INFO - Starting Z3 verification
+2025-05-18 06:58:41,951 - verification_system - INFO - Translating functions to Z3 expressions
+2025-05-18 06:58:41,951 - verification_system - INFO - Z3 verification skipped due to limitation: Function call to int not supported
+2025-05-18 06:58:41,951 - verification_system - INFO - Starting CrossHair verification
+2025-05-18 06:58:41,951 - verification_system - INFO - Generating property function for CrossHair
+2025-05-18 06:58:41,951 - verification_system - INFO - Running CrossHair analysis
+2025-05-18 06:58:41,952 - verification_system - INFO - CrossHair verification completed in 0.00 seconds
+2025-05-18 06:58:41,952 - verification_system - INFO - CrossHair verification found 0 issues
+2025-05-18 06:58:41,952 - verification_system - INFO - Determining overall equivalence
+2025-05-18 06:58:41,952 - verification_system - INFO - Runtime verification says equivalent: True
+2025-05-18 06:58:41,952 - verification_system - INFO - CrossHair verification found issues: False
+2025-05-18 06:58:41,952 - verification_system - INFO - Final equivalence determination: True
+2025-05-18 06:58:41,952 - verification_system - INFO - Verification completed. Steps performed: ['runtime', 'crosshair']
+2025-05-18 06:58:41,952 - verification_system - INFO - Final result: True
+2025-05-18 06:58:42,855 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:58:44,160 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:58:45,058 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:58:46,604 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"
+2025-05-18 06:58:47,845 - httpx - INFO - HTTP Request: POST https://azure-ai-dev.hms.edu/openai/deployments/gpt-4o/chat/completions?api-version=2024-05-01-preview "HTTP/1.1 200 OK"

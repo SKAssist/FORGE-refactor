@@ -6,7 +6,7 @@ import difflib
 from pathlib import Path
 from refactor_verification import (
     CrossHairVerifier, Z3Verifier, PythonToZ3Translator,
-    ASTAnalyzer, extract_code_block, get_function_from_code, RefactoringEngine
+    ASTAnalyzer, extract_code_block, get_function_from_code, RefactoringEngine, call_gpt4o_api
 )
 
 
@@ -72,7 +72,8 @@ def refactor_seed(seed_code: str) -> str:
 Code:
 {seed_code}
 """
-    return strip_fences(call_llama(prompt))
+    # return strip_fences(call_llama(prompt))
+    return strip_fences(call_gpt4o_api(prompt))
 
 
 def refactor_call_context(seed_before: str, seed_after: str, usage_block: str) -> str:
@@ -97,7 +98,8 @@ Block:
 
 Return only the updated code, with no explanation.
 """
-    return strip_fences(call_llama(prompt))
+    # return strip_fences(call_llama(prompt))
+    return strip_fences(call_gpt4o_api(prompt))
 
 
 def refactor_with_engine(original_code):
@@ -105,7 +107,7 @@ def refactor_with_engine(original_code):
     results = refactor_engine.refactor_with_feedback_loop(
         original_code=original_code,
         refactoring_strategy="optimize_for_readability",
-        max_iterations=3
+        max_iterations=20
     )
     return results["final_refactored_code"]
 

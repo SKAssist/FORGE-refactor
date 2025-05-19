@@ -6,21 +6,9 @@ import difflib
 from pathlib import Path
 from refactor_verification import (
     CrossHairVerifier, Z3Verifier, PythonToZ3Translator,
-    ASTAnalyzer, extract_code_block, get_function_from_code, RefactoringEngine
+    ASTAnalyzer, extract_code_block, get_function_from_code, RefactoringEngine, call_gpt4o_api, extract_code_block
 )
-from mistralai import Mistral
 
-# Mistral setup
-api_key = "shZl9BS91mQ08w7NX4FpGlifFyiMH5fj"
-model = "mistral-large-latest"
-client = Mistral(api_key=api_key)
-
-def call_mistral(prompt):
-    chat_response = client.chat.complete(
-        model=model,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    return chat_response.choices[0].message.content
 
 def call_llama(prompt: str) -> str:
     payload = {
@@ -35,7 +23,9 @@ def call_llama(prompt: str) -> str:
     except Exception as e:
         print(f"❌ Error calling LLaMA: {e}")
         return ""
+    
 
+        
 def strip_fences(text: str) -> str:
     return text.strip()
 
@@ -75,14 +65,14 @@ Block:
 
 Return only the updated code, with no explanation.
 """
-    return strip_fences(call_llama(prompt))
+    return strip_fences(call_gpt4o_api(prompt))
 
 def refactor_with_engine(original_code):
     refactor_engine = RefactoringEngine()
     results = refactor_engine.refactor_with_feedback_loop(
         original_code=original_code,
         refactoring_strategy="optimize_for_readability",
-        max_iterations=3
+        max_iterations=20
     )
     return results["final_refactored_code"]
 
@@ -157,13 +147,51 @@ def process_files(func_name: str, seed_before: str, seed_after: str, target_dir:
 
     print(f"\n✅ Done. Refactored {changed_files} file(s).")
 
+def clean_llm_response(code: str) -> str:
+    code = code.strip()
+
+    # Remove Markdown-style fences: ```python ... ```
+    if code.startswith("```"):
+        lines = code.splitlines()
+        while lines and lines[0].strip().startswith("```"):
+            lines = lines[1:]
+        while lines and lines[-1].strip().startswith("```"):
+            lines = lines[:-1]
+
+
+    # Remove triple-quote style: '''python ... ''' or """python ... """
+    elif code.startswith(("'''", '"""')):
+        lines = code.splitlines()
+        if lines[0].strip().startswith(("'''", '"""')):
+            lines = lines[1:]
+        if lines and lines[-1].strip().endswith(("'''", '"""')):
+            lines = lines[:-1]
+        code = "\n".join(lines)
+
+    # Detect common leading whitespace across all lines (for manual dedent)
+    lines = code.splitlines()
+    min_indent = None
+    for line in lines:
+        stripped = line.lstrip()
+        if not stripped:
+            continue  # skip empty lines
+        indent_len = len(line) - len(stripped)
+        if min_indent is None or indent_len < min_indent:
+            min_indent = indent_len
+
+    if min_indent and min_indent > 0:
+        lines = [line[min_indent:] if len(line) >= min_indent else line for line in lines]
+
+    return "\n".join(lines).strip()
+
+
 # 🎯 THIS is the function to call from VS Code
 def refactor(seed_code: str, target_directory: str):
     if not seed_code.strip():
         print("❌ No seed code provided.")
         return
 
-    print("📤 Sending seed snippet to Mistral...")
+    print("📤 Sending seed snippet to Llama4...")
     seed_after = refactor_with_engine(seed_code)
 
     if not seed_after:
@@ -171,6 +199,7 @@ def refactor(seed_code: str, target_directory: str):
         return
 
     print("✅ Refactor received.")
+    seed_after = clean_llm_response(seed_after)
     func_name = extract_function_name(seed_code)
     if not func_name:
         print("❌ Could not determine function name.")

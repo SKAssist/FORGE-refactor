@@ -1,6 +1,7 @@
 {
   "name": "llama-refactor-extension",
   "displayName": "LLaMA Refactor Extension",
+  "publisher": "forge",
   "description": "Refactor selected Python code using LLaMA and verify it across files",
   "version": "0.0.1",
   "engines": {
